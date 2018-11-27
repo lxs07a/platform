@@ -48,6 +48,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexController)
 app.use('/users', usersController)
 
+<<<<<<< HEAD
+=======
+app.use('/', indexController);
+app.use('/signup', usersController);
+>>>>>>> 6e8f2e01fdf91c445798dda2e7cb3beff94e1ede
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -67,4 +72,10 @@ app.use(function(err, req, res, next) {
 
 module.exports = app
 
+<<<<<<< HEAD
 app.listen(3000)
+=======
+app.listen(3000, function() {
+  console.log("Server is running!");
+});
+>>>>>>> 6e8f2e01fdf91c445798dda2e7cb3beff94e1ede
