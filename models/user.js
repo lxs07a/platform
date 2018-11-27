@@ -26,7 +26,7 @@ var User = mongoose.model("users", new Schema ({
     },
 
     languages: Array,
-    skills: [ObjectId],
+    skills: Array,
 
     facebook_profile: String,
     linked_in_profile: String,

@@ -1,4 +1,5 @@
 var express = require('express')
+var app = express()
 var router = express.Router()
 
 var session = require('express-session')
