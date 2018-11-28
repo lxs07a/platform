@@ -1,7 +1,7 @@
 var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
-var User = mongoose.model("hosts", new Schema ({
+var Host = mongoose.model("hosts", new Schema ({
     contact_person: String,
     facility_name: String,
 

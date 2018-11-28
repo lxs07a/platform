@@ -1,15 +1,37 @@
 var express = require('express')
 var app = express()
-var router = express.Router()
 
 var session = require('express-session')
+
+var mongoose = require('mongoose')
+const MongoStore = require("connect-mongo")(session)
+
+mongoose.connect("mongodb://localhost:27017/change", {
+  useNewUrlParser: true
+})
+
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: ['LULU Carrot', 'Just Do It'],
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: true, //requires HTTPS connection
+    sameSite: true 
+   },
+   unset: 'destroy'
+}))
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 var mongoose = require("mongoose")
-var Schema = mongoose.Schema
+// var Schema = mongoose.Schema
 
 var User = require("../models/user.js")
 
@@ -17,31 +39,66 @@ const bcrypt = require('bcrypt')
 const saltRounds = 9
 
 //Sign Up page
-router.get('/signup', function(req, res, next) {
+app.get('/signup', function(req, res, next) {
   res.render('signup')
 })
 
-router.post("/signup", function(req, res, next){
-  //clear session...
-  User.find({username: req.body.username})
-  .then ((result) => {
-    if(result[0]) res.render("errlogin")
-    //if (result[0]!==undefined)
-    else {
-      bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-        var user = new User({
-          username:req.body.username, 
-          password:hash
+app.post("/signup", function
+  (req, res, next) {
+  console.log("Req session current User is " + req.session.currentUser)
+  if (req.session.currentUser!=undefined) req.session.destroy()
+  else {
+    User.find({email: req.body.email})
+    .then ((result) => {
+      if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
+      else {
+        //start session
+        req.session.currentUser = req.body.email
+        console.log("Req session current User is " + req.session.currentUser)
+        bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+          var user = new User({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            nickname: req.body.nickname,
+
+            email: req.body.email,
+            password: hash,
+
+            address: {
+                street: req.body.street,
+                postcode: req.body.postcode,
+                city: req.body.city,
+                country: req.body.country
+            },
+
+            birthdate: req.body.birthdate, //saves as datestamp
+            profession: req.body.profession,
+            country_of_origin: req.body.country_of_origin,
+
+            // languages: Array,
+            // skills: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
+
+            // profilepic: String,
+            // governmentId: String,
+
+            question1: req.body.question1,
+            question2: req.body.question2,
+            question3: req.body.question3, 
+
+            start_date: req.body.start_date,
+            end_date: req.body.end_date,
+          })
+          console.log("User is " + user)
+          user.save(function(err){
+          res.send("Success!" + user.birthdate)
+          })
         })
-        user.save(function(err){
-          //some session stuff
-          res.render("vipsearch", {name:req.body.username})
-        })
-      })
-    }
-  })
+      }
+    })
+    .catch((err)=> {
+      throw(err)
+    })
+  }
 })
 
-
-
-module.exports = router;
+module.exports = app
