@@ -8,18 +8,6 @@ var path = require('path')
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', __dirname + '/views')
 
-var session = require('express-session')
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  secret: 'LULU Carrot',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { 
-    secure: true, //requires HTTPS connection
-    sameSite: true 
-   }
-}))
-
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 

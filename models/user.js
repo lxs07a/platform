@@ -26,7 +26,8 @@ var User = mongoose.model("users", new Schema ({
     },
 
     languages: Array,
-    skills: Array,
+    // skills: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
+    skills: [{ type: ObjectId, ref: 'Skill' }],
 
     facebook_profile: String,
     linked_in_profile: String,
