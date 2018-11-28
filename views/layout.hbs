@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/stylesheets/bundle.css">
     <link rel="stylesheet" href="/stylesheets/hody-icons.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700|Source+Sans+Pro:300,400|Kaushan+Script|Lora|Playfair+Display:700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700|Source+Sans+Pro:300,400|Pacifico|Playfair+Display:700" rel="stylesheet" type="text/css">
 	  
   </head>
   <body>
@@ -34,6 +34,7 @@
           <div class="container">
             <div class="logo">
               <a href="index.html">
+				  <h2 style="font-family: 'Pacifico', cursive; color:#00c3da; margin-top: 10px;">Circle</h2>
                 <img class="logo-light" src="images/logo-light.png" alt="">
                 <img class="logo-dark" src="images/logo-dark.png" alt="">
               </a>
@@ -331,13 +332,17 @@
       </nav> 
 	  
     {{{body}}}
-	  </div>
-	      <script type="text/javascript" src="/js/jquery.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	  
     <script type="text/javascript" src="/js/bundle.js"></script>
     <script type="text/javascript" src="/js/SmoothScroll.js"></script>
     <script type="text/javascript" src="/js/jquery.mb.YTPlayer.js"></script>
     <script type="text/javascript" src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyCNGOsBBZo9vf0Tw4w6aJiilSTFVfQ5GPI"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-	  
+	  <script type="text/javascript" src="/js/countries.js"></script>
+	  <script language="javascript">	
+	populateCountries("country");
+	populateCountries("country2");
+</script>
+	  <script type="text/javascript" src="/js/bootstrap-formhelpers.min.js"></script>
   </body>
 </html>

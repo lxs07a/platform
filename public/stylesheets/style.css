@@ -9,7 +9,7 @@
   Table of Contents
 
   01  Common Styles
-  02  Buttons
+  02  Buttons55
   03  Navbar
   04  Aside Navbar
   05  Fullscreen Menu
@@ -199,7 +199,10 @@ blockquote footer {
   font-family: 'Poppins', sans-serif;
 }
 hr {
-  border-color: #e6e6e6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 4px dotted #eee;
+	border-color: #00c3da;
 }
 #wrapper {
   position: relative;
@@ -346,7 +349,7 @@ section.page-title {
   height: 450px;
 }
 section.page-title.parallax-section {
-  height: 550px;
+  height: 350px;
 }
 section.page-title .bp-desktop({
     h1{
@@ -667,6 +670,7 @@ section.page-title .bp-desktop({
   height: 100%;
   background-color: rgba(33, 40, 45, 0.6);
 }
+
 .img-holder.overlay .title p {
   color: #fff;
 }
@@ -6342,19 +6346,46 @@ section.section-skewed.section-bordered #home-slider:after {
   13
   Forms
 */
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+#uploadFile { background-color: white; border-width: 0px!important }
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px; height: 30px; line-height: 30px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
 .form-group {
   margin-bottom: 25px;
 }
 .form-group label {
-  color: #1f1f1f;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 13px;
+    color: #61c4da;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    font-weight: 400;
 }
 .form-control {
   height: 50px;
   padding: 0 15px;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 100;
   line-height: 50px;
   border: 2px solid #eee;
   border-radius: 0;
@@ -7441,6 +7472,9 @@ img.zoom-img {
   background-color: #00c3da;
   color: #fff;
 }
+
+.orange { color:orange; }
+
 .d-b {
   display: block;
 }

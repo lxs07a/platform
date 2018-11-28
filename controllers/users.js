@@ -33,16 +33,17 @@ const saltRounds = 9
 
 //Sign Up page
 app.get('/signup', function(req, res, next) {
-  res.send('signup')
+  res.render('signup')
 })
 
 app.post("/signup", function
   (req, res, next) {
+  console.log(req.session.currentUser)
   if (req.session.currentUser!=undefined) req.session.destroy()
   else {
-    User.find({username: req.body.username})
+    User.find({email: req.body.email})
     .then ((result) => {
-      if(result[0]) res.send("This username is taken")
+      if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
       //if (result[0]!==undefined)
       else {
         //start session
@@ -51,8 +52,9 @@ app.post("/signup", function
         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
           user.password = hash
         })
+        
         user.save(function(err){
-          res.render("vipsearch", {name:req.session.currentUser})
+          res.render("hostlist", {name:req.session.currentUser})
         })
       }
     })
