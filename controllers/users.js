@@ -18,7 +18,7 @@ const saltRounds = 9
 
 //Sign Up page
 router.get('/signup', function(req, res, next) {
-  res.send('signup')
+  res.render('signup')
 })
 
 router.post("/signup", function(req, res, next){
