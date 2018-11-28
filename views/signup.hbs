@@ -10,11 +10,11 @@
         <div class="centrize">
           <div class="v-center">
             <div class="container">
-<!--
+
               <div class="title text-left">
                 <h2 class="orange">Sign up...</h2>                
               </div>
--->
+
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="container">
 			<div class="row">
 				<div class="col-md-5 mb-25">
-				<h2 style="font-family: 'Source Sans Pro', sans-serif; color:#000000;">...and start with<br><span style="font-size:130%; font-family: 'Pacifico', sans-serif; color:#00c3da;">the rest of your life.</span></h2>              
+				<h2 style="font-family: 'Source Sans Pro', sans-serif; color:#000000;">...and mark the beginning of<br><span style="font-size:130%; font-family: 'Pacifico', sans-serif; color:#00c3da;"> your new life.</span></h2>              
               </div>
 			</div>
           <div class="row">
@@ -31,95 +31,97 @@
 			  </div>
 			  <div class="col-md-5 mb-25">
 				 <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="First name">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Last name">
-    </div>
   </div>
               <div class="form-group">
 				  <label>Name</label>
-                <input class="form-control input-sm" type="text" placeholder="First name">
+          <p class="small">Official name as displayed on your government ID</p>
+                <input class="form-control input-sm" type="text" name="firstname" placeholder="First name">
   
-                <input class="form-control input-sm" type="text" placeholder="Last name">
+                <input class="form-control input-sm" type="text" name="lastname" placeholder="Last name">
               </div>
 				  <div class="form-group">
 				  <label>Nickname</label>
-					  <p class="small">This name will be displayed in on the site</p>
-                <input class="form-control input-sm" type="text" placeholder="...">
+					  <p class="small">What your friends call you -- this name will be displayed on the site</p>
+                <input class="form-control input-sm" type="text" name="nickname" placeholder="Username">
               </div>
+          <div class="form-group">
+					  <label>Email address</label>
+				  <input class="form-control input-sm" type="email" name="email" placeholder="Email address">
+				  </div>
 				  <div class="form-group">
 				  <label>Password</label>
-                <input class="form-control input-sm" type="password" name="pwd" placeholder="Choose a strong password">
-              </div>
-				  
-				  
+                <input class="form-control input-sm" type="password" name="password" placeholder="Choose a strong password">
+              </div>  
 				  <hr>
 			  <div class="form-group">
 				  <label>Address</label>
-                <input class="form-control input-sm" type="text" placeholder="Street + number">
+                <input class="form-control input-sm" type="text" name="street" placeholder="Street + number">
               </div>
 				<div class="form-group" style="width: 100%;">
-                <input class="form-control input-sm" type="text" placeholder="Postal code" style="display: inline; width: 40%;">
-					<input class="form-control input-sm" type="text" placeholder="City"  style="display: inline; width: 59%;">
+                <input class="form-control input-sm" type="text" name="postcode" placeholder="Postcode" style="display: inline; width: 40%;">
+					<input class="form-control input-sm" type="text" name="city" placeholder="City"  style="display: inline; width: 59%;">
               </div>
 			  <div class="form-group">
                 <select id="country" name="country" class="form-control input-sm"></select>
               </div>
-				<hr>
-				  <div class="form-group">
-					  <label>Email address</label>
-				  <input class="form-control input-sm" type="email" name="emailaddress" placeholder="Email address">
-				  </div>
 				  <hr>
 			  <div class="form-group">
 				  <label>Date of birth</label>
-                <input class="form-control input-sm" type="date" placeholder="Birthdate">
+                <input class="form-control input-sm" type="date" name="birthdate" placeholder="Birthdate">
               </div>
 			  <div class="form-group">
 				  <label>Profession</label>
 				  <p class="small">What do you do for a living? ;)</p>
-                <input class="form-control input-sm" type="text" placeholder="...">
+                <input class="form-control input-sm" type="text" name="profession" placeholder="...">
               </div>
+        <div class="form-group">
+				  <label>Country of origin</label>
+                <select id="country2" name="country2" class="form-control input-sm"></select>
+              </div>
+          <label>Languages you speak</label>
+		      <form action="">
+					<select class="form-control bfh-languages" data-language="en"></select>
+				</form>
+        <hr>
+        <label>Pictures</label>
 			  <div class="form-group">
                <input id="uploadFile" placeholder="Choose a profile picture" disabled="disabled" />
 				<div class="fileUpload btn btn-primary">
 					<span>Upload</span>
-					<input id="uploadBtn" type="file" class="upload" />
+					<input id="uploadBtn" type="file" name="profilepic" class="upload" />
 				</div>
 			  </div>
 				<div class="form-group">
                <input id="uploadFile" placeholder="Upload government ID" disabled="disabled" />
 				<div class="fileUpload btn btn-primary">
 					<span>Upload</span>
-					<input id="uploadBtn" type="file" class="upload" />
+					<input id="uploadBtn" type="file" name="governmentId" class="upload" />
 				</div>
 			  </div>
+        <hr>
 				<div class="form-group">
-                <input class="form-control input-sm" type="text" placeholder="Question 1">
+          <label>Tell Us About Yourself</label>
+          <p>Why do you want to become a travelling carrot?</p>
+                <textarea class="form-control input-sm" type="text" name="question1" placeholder="Question 1"></textarea>
               </div>
 			  <div class="form-group">
-                <input class="form-control input-sm" type="text" placeholder="Question 2">
+          <p>What is one thing you would like to change in the world?</p>
+                <textarea class="form-control input-sm" type="text" name="question2" placeholder="Question 2"></textarea>
               </div>
 			  <div class="form-group">
-                <input class="form-control input-sm" type="text" placeholder="Question 3">
+          <p>What superpower would you like to have and why?</p>
+                <textarea class="form-control input-sm" type="text" name="question3" placeholder="Question 3"></textarea>
               </div>
+        <hr>
 			  <div class="form-group">
                 <label>Pick your start date</label>
-                <input class="form-control input-sm" type="date" placeholder="Birthdate">
+                <input class="form-control input-sm" type="date"  name="start_date">
               </div>
 			  <div class="form-group">
                 <label>Pick your end date</label>
-                <input class="form-control input-sm" type="date" placeholder="Birthdate">
+                <input class="form-control input-sm" type="date" name="end_date">
               </div>  
-			  <div class="form-group">
-				  <label>Country of origin</label>
-                <select id="country2" name="country2" class="form-control input-sm"></select>
-              </div>
-		      <form action="">
-					<select class="form-control bfh-languages" data-language="en"></select>
-				</form>
+        <hr>
 				  <br><br>
 				  <div class="form-group">
                 <div class="checkout-submit">

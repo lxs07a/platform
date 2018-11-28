@@ -3,13 +3,20 @@ var app = express()
 
 var session = require('express-session')
 
+var mongoose = require('mongoose')
+const MongoStore = require("connect-mongo")(session)
+
+mongoose.connect("mongodb://localhost:27017/change", {
+  useNewUrlParser: true
+})
+
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: ['LULU Carrot', 'Just Do It'],
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
-  })
+  }),
   resave: false,
   saveUninitialized: false,
   cookie: { 
@@ -48,7 +55,7 @@ app.post("/signup", function
       else {
         //start session
         req.session.currentUser = req.body.username
-        var user = new User({...req.body})
+        var user = new User(...req.body)
         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
           user.password = hash
         })
