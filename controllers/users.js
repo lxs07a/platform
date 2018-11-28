@@ -45,23 +45,53 @@ app.get('/signup', function(req, res, next) {
 
 app.post("/signup", function
   (req, res, next) {
-  console.log(req.session.currentUser)
+  console.log("Req session current User is " + req.session.currentUser)
   if (req.session.currentUser!=undefined) req.session.destroy()
   else {
     User.find({email: req.body.email})
     .then ((result) => {
       if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
-      //if (result[0]!==undefined)
       else {
         //start session
-        req.session.currentUser = req.body.username
-        var user = new User(...req.body)
+        req.session.currentUser = req.body.email
+        console.log("Req session current User is " + req.session.currentUser)
         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-          user.password = hash
-        })
-        
-        user.save(function(err){
-          res.render("hostlist", {name:req.session.currentUser})
+          var user = new User({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            nickname: req.body.nickname,
+
+            email: req.body.email,
+            password: hash,
+
+            address: {
+                street: req.body.street,
+                postcode: req.body.postcode,
+                city: req.body.city,
+                country: req.body.country
+            },
+
+            birthdate: req.body.birthdate, //saves as datestamp
+            profession: req.body.profession,
+            country_of_origin: req.body.country_of_origin,
+
+            // languages: Array,
+            // skills: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
+
+            // profilepic: String,
+            // governmentId: String,
+
+            question1: req.body.question1,
+            question2: req.body.question2,
+            question3: req.body.question3, 
+
+            start_date: req.body.start_date,
+            end_date: req.body.end_date,
+          })
+          console.log("User is " + user)
+          user.save(function(err){
+          res.send("Success!" + user.birthdate)
+          })
         })
       }
     })
@@ -71,5 +101,4 @@ app.post("/signup", function
   }
 })
 
-
-module.exports = app;
+module.exports = app
