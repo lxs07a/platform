@@ -40,7 +40,7 @@ const upload = multer({ dest: './public/uploads/' })
 var cpUpload = upload.fields([{ name: 'profilepic', maxCount: 1 }, { name: 'governmentId', maxCount: 1 }])
 
 //Sign Up page
-app.get('/signup', function(req, res, next) {
+app.get('/signup', function(req, res) {
   res.render('signup')
 })
 
@@ -56,39 +56,13 @@ app.post("/signup", cpUpload, function
         req.session.currentUser = req.body.email
         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
           var user = new User({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            nickname: req.body.nickname,
-
-            email: req.body.email,
-            password: hash,
-
-            address: {
-                street: req.body.street,
-                postcode: req.body.postcode,
-                city: req.body.city,
-                country: req.body.country
-            },
-
-            birthdate: req.body.birthdate, //saves as datestamp
-            profession: req.body.profession,
-            country_of_origin: req.body.country_of_origin,
-
-            // languages: Array,
-            // skills: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
-
-            profilepic: req.files['profilepic'][0].path,
-            governmentId: req.files['governmentId'][0],
-
-            question1: req.body.question1,
-            question2: req.body.question2,
-            question3: req.body.question3, 
-
-            start_date: req.body.start_date,
-            end_date: req.body.end_date,
+            ...req.body
           })
+          user.profilepic = req.files['profilepic'][0].path
+          user.governmentId = req.files['governmentId'][0].path
+          user.password = hash
           user.save(function(err){
-          res.send("Success!" + user.birthdate)
+            res.send("Success!")
           })
         })
       }
