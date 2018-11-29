@@ -32,7 +32,7 @@ app.use(bodyParser.json())
 
 var User = require("../models/user.js")
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const saltRounds = 9
 
 const multer  = require('multer')
