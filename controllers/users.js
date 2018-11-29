@@ -35,7 +35,7 @@ var mongoose = require("mongoose")
 
 var User = require("../models/user.js")
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const saltRounds = 9
 
 //Sign Up page
