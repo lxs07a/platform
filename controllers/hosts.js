@@ -92,30 +92,25 @@ app.post("/signup", cpUpload, function(req, res, next) {
         })
 
         host.password = hash
-		  
-		host.cover_pic = req.body.cover_pic
-		host.profilepic = req.body.profilepic
-		  
-//		let facilityArray = req.files['facility_pics'].map((obj) => {
-//          return obj.path
-//        }) 
-//        host.facility_pics = facilityArray
-		  
-		  
-//        let facilityArray = req.files['facility_pics'].map((obj) => {
-//          return obj.path
-//        }) 
-//        host.facility_pics = facilityArray
+        
+        host.contact_person_pic = req.files['contact_person_pic'][0].path
 
-//        let accommodationArray = req.files['accommodation_pics'].map((obj) => {
-//          return obj.path
-//        }) 
-//        host.accommodation_pics = accommodationArray
-//
-//        let classroomArray = req.files['classroom_pics'].map((obj) => {
-//          return obj.path
-//        }) 
-//        host.accommodation_pics = classroomArray
+        host.cover_pic = req.files['cover_pic'][0].path
+
+        let facilityArray = req.files['facility_pics'].map((obj) => {
+          return obj.path
+        }) 
+        host.facility_pics = facilityArray
+
+        let accommodationArray = req.files['accommodation_pics'].map((obj) => {
+          return obj.path
+        }) 
+        host.accommodation_pics = accommodationArray
+
+        let classroomArray = req.files['classroom_pics'].map((obj) => {
+          return obj.path
+        }) 
+        host.accommodation_pics = classroomArray
 
         let urlString = req.body.name + req.body.country
         host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
