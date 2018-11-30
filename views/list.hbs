@@ -29,9 +29,9 @@
          </ul>
          <div class="four-col with-spacing" id="works-grid">
 			 {{#each hosts}}				
-            <div class="work-item africa">
+            <div class="work-item {{this.continent}}">
                <div class="work-detail">
-                  <a href="/hosts/{{this.facility_name}}">
+                  <a href="/hosts/{{this._id}}">
                      {{#if this.images}}
                      <img src="{{this.images.path}}" alt=""> <!-- Needs to be changed to the correct URL -->
                      {{else}}
