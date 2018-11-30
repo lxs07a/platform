@@ -3,15 +3,36 @@ var app = express()
 
 var session = require('express-session')
 
+var mongoose = require('mongoose')
+const MongoStore = require("connect-mongo")(session)
+
+mongoose.connect("mongodb://localhost:27017/change", {
+  useNewUrlParser: true
+})
+
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: ['LULU Carrot', 'Just Do It'],
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: true, //requires HTTPS connection
+    sameSite: true 
+   },
+   unset: 'destroy'
+}))
+
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-var mongoose = require("mongoose")
-
 var Host = require("../models/host.js")
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const saltRounds = 9
 
 const multer  = require('multer')
@@ -34,6 +55,26 @@ app.get('/list', function(req, res, next) {
 		}
 	})
 })
+
+
+app.get('/:hostId', (req, res) => {
+
+//	
+//	res.render('single-host', req.params.hostId)
+////	spotifyApi.getArtistAlbums(req.params.artistId)
+////		.then(data => {
+////			res.render('albums', {
+////				albums: data.body.items
+////			})
+////		})
+////		.catch(err => {
+////			console.log('Something went wrong... ', err)
+////		})
+	
+
+	
+	
+});
 
 //Sign Up page for hosts
 app.get('/signup', function(req, res) {
