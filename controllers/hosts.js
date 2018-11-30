@@ -39,7 +39,8 @@ const saltRounds = 9
 
 const multer  = require('multer')
 const upload = multer({ dest: './public/uploads/' })
-var cpUpload = upload.fields([{ name: 'contact_person_pic', maxCount: 1 }, 
+var cpUpload = upload.fields([{ name: 'contact_person_pic', maxCount: 1 },
+                              { name: 'cover_pic', maxCount: 1 },
                               { name: 'facility_pics', maxCount: 5 },  
                               { name: 'accommodation_pics', maxCount: 5 }, 
                               { name: 'classroom_pics', maxCount: 5 }])
@@ -91,6 +92,10 @@ app.post("/signup", cpUpload, function(req, res, next) {
         })
 
         host.password = hash
+        
+        host.contact_person_pic = req.files['contact_person_pic'][0].path
+
+        host.cover_pic = req.files['cover_pic'][0].path
 
         let facilityArray = req.files['facility_pics'].map((obj) => {
           return obj.path
