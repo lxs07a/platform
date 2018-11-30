@@ -6,6 +6,8 @@ var session = require('express-session')
 var mongoose = require('mongoose')
 const MongoStore = require("connect-mongo")(session)
 
+var ObjectId = require('mongodb').ObjectID;
+
 mongoose.connect("mongodb://localhost:27017/change", {
   useNewUrlParser: true
 })
@@ -51,31 +53,19 @@ app.get('/list', function(req, res, next) {
 })
 
 app.get('/:hostId', (req, res) => {
-	Host.find({})(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-  });
-//	
-//	res.render('single-host', req.params.hostId)
-////	spotifyApi.getArtistAlbums(req.params.artistId)
-////		.then(data => {
-////			res.render('albums', {
-////				albums: data.body.items
-////			})
-////		})
-////		.catch(err => {
-////			console.log('Something went wrong... ', err)
-////		})
-	
-
-	
-	
+	Host.findOne( { "_id": ObjectId(req.params.hostId) } )
+	.then(data => {
+			res.render('single-host', {
+				country: data.country,
+				city: data.city,
+				facility_name: data.facility_name,
+		})
+	})	
 });
 
 
 //Sign Up page hosts
 app.get('/signup', function(req, res, next) {
-//	db.hosts.find()
   res.render('signup-hosts')
 })
 
