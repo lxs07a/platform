@@ -11,7 +11,7 @@ var User = mongoose.model("users", new Schema ({
 
     address: {
         street: String,
-        postcode: Number,
+        postcode: String,
         city: String,
         country: String
     },
