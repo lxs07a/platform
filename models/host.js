@@ -3,9 +3,13 @@ var Schema = mongoose.Schema
 
 var Host = mongoose.model("hosts", new Schema ({
     contact_person: String,
+    contact_person_pic: String,
     facility_name: String,
-	email: String,
+    email: String,
+    url_name: String,
+    
     country: String,
+    continent: String,
     address: {
         streetname: String,
         streetnumber: Number,
@@ -18,7 +22,7 @@ var Host = mongoose.model("hosts", new Schema ({
     question2: String,
     question3: String,
 
-//    skills_needed: [ObjectId],
+    //skills_needed: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
 
     start_date: Date,
     end_date: Date,
