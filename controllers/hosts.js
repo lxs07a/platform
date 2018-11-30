@@ -9,6 +9,7 @@ const MongoStore = require("connect-mongo")(session)
 mongoose.connect("mongodb://localhost:27017/change", {
   useNewUrlParser: true
 })
+const ObjectId = mongoose.Types.ObjectId
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -57,24 +58,15 @@ app.get('/list', function(req, res, next) {
 })
 
 
-app.get('/:hostId', (req, res) => {
-
-//	
-//	res.render('single-host', req.params.hostId)
-////	spotifyApi.getArtistAlbums(req.params.artistId)
-////		.then(data => {
-////			res.render('albums', {
-////				albums: data.body.items
-////			})
-////		})
-////		.catch(err => {
-////			console.log('Something went wrong... ', err)
-////		})
-	
-
-	
-	
-});
+app.get('/:hostId', function (req, res) {
+  Host.find({"_id": ObjectId(req.params.hostId)})
+  .then((result) => {
+    res.send(result[0])
+  })
+  .catch((err)=> {
+    throw(err)
+  })	
+})
 
 //Sign Up page for hosts
 app.get('/signup', function(req, res) {
@@ -84,8 +76,8 @@ app.get('/signup', function(req, res) {
 app.post("/signup", cpUpload, function(req, res, next) {
   Host.find({email: req.body.email})
   .then ((result) => {
-    if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
-    else {
+    // if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
+    // else {
       bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
 
         var host = new Host({
@@ -99,24 +91,25 @@ app.post("/signup", cpUpload, function(req, res, next) {
         }) 
         host.facility_pics = facilityArray
 
-        let accommodationArray = req.files['accommodation_pics'].map((obj) => {
-          return obj.path
-        }) 
-        host.accommodation_pics = accommodationArray
+        // let accommodationArray = req.files['accommodation_pics'].map((obj) => {
+        //   return obj.path
+        // }) 
+        // host.accommodation_pics = accommodationArray
 
-        let classroomArray = req.files['classroom_pics'].map((obj) => {
-          return obj.path
-        }) 
-        host.accommodation_pics = classroomArray
+        // let classroomArray = req.files['classroom_pics'].map((obj) => {
+        //   return obj.path
+        // }) 
+        // host.accommodation_pics = classroomArray
 
-        let urlString = req.body.name + req.body.country
-        host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
+        // let urlString = req.body.name + req.body.country
+        // host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
         
         host.save(function(err){
-        res.send("Success!");
+          console.log(host)
+          res.send("Success!")
         })
       })
-    }
+    // }
   })
   .catch((err)=> {
     throw(err)
