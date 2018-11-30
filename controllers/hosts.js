@@ -50,7 +50,7 @@ app.post("/signup", cpUpload, function(req, res, next) {
         var host = new Host({
           ...req.body 
         })
-        
+
         host.password = hash
 
         let facilityArray = req.files['facility_pics'].map((obj) => {
@@ -67,6 +67,9 @@ app.post("/signup", cpUpload, function(req, res, next) {
           return obj.path
         }) 
         host.accommodation_pics = classroomArray
+
+        let urlString = req.body.name + req.body.country
+        host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
         
         host.save(function(err){
         res.send("Success!");
