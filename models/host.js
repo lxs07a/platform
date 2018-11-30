@@ -1,6 +1,8 @@
 var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
+var ObjectId = require('mongodb').ObjectID;
+
 var Host = mongoose.model("hosts", new Schema ({
     contact_person: String,
     contact_person_pic: String,
@@ -22,7 +24,7 @@ var Host = mongoose.model("hosts", new Schema ({
     question2: String,
     question3: String,
 
-    //skills_needed: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
+    skills_needed: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
 
     start_date: Date,
     end_date: Date,
