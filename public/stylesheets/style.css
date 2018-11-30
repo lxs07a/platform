@@ -1,9 +1,3 @@
-/*
-  Style.css file
-  Bezel Template
-  Version: 1.0.2
-  By HodyLab | http://hody.co
-*/
 /****************
 
   Table of Contents
@@ -376,6 +370,7 @@ section.page-title .bp-desktop({
 .title > h1 {
   font-size: 48px;
   letter-spacing: -1px;
+  font-family: 'Pacifico', cursive;
 }
 .title > h1.upper {
   letter-spacing: 0.03em;
@@ -414,7 +409,10 @@ section.page-title .bp-desktop({
   }
 }
 .title > h3 {
-  letter-spacing: -1px;
+  letter-spacing: 1px;
+	font-weight: 600;
+	color:yellow!important;
+	margin-top: 0px;
 }
 .title > h3.cursive-font {
   letter-spacing: 0;
@@ -1721,7 +1719,7 @@ section.section-skewed .skewed-mask {
   left: 0;
   width: 100%;
   padding-bottom: 6%;
-  z-index: 1;
+  z-index: 10;
   pointer-events: none;
 }
 section.section-skewed .skewed-mask .mask-block {
@@ -1755,13 +1753,17 @@ section.gradient-bg:not([data-gradients]) {
   background: -webkit-linear-gradient(left, #cf93ff 0%, #00c3da 100%);
   background: linear-gradient(90deg, #cf93ff 0%, #00c3da 100%);
 }
+
+.page-title .title { z-index: 99}
+.page-title .gradient-bg-wrapper { z-index: 9; opacity: 0.7; } 
+
 .gradient-bg-wrapper,
 .gradient-bg-element {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0;  
 }
 .client-carousel figure {
   line-height: 100px;
@@ -2680,6 +2682,10 @@ section.gradient-bg:not([data-gradients]) {
 #navbar.stick .navigation-menu > li.menu-btn-item {
   padding: 13px 15px;
 }
+
+#navbar .logo h2 { color: #fff!important; }
+#navbar.stick .logo h2 { color: #00c3da!important; }
+
 #navbar.stick.dark-menu {
   background-color: #1f1f1f;
   border-color: #1c1c1c;

@@ -11,7 +11,6 @@ var ObjectId = require('mongodb').ObjectID;
 mongoose.connect("mongodb://localhost:27017/change", {
   useNewUrlParser: true
 })
-const ObjectId = mongoose.Types.ObjectId
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -59,19 +58,27 @@ app.get('/list', function(req, res, next) {
 	})
 })
 
-app.get('/:hostId', function (req, res) {
-  Host.find({"_id": ObjectId(req.params.hostId)})
-  .then((result) => {
-    res.send(result[0])
-  })
-  .catch((err)=> {
-    throw(err)
-  })	
-})
+
 
 //Sign Up page for hosts
 app.get('/signup', function(req, res) {
   res.render('signup-hosts')
+})
+
+app.get('/single/:hostId', function (req, res) {
+  Host.findOne( { "_id": ObjectId(req.params.hostId) } )
+	.then(data => {
+			res.render('single-host', {
+				country: data.country,
+				city: data.city,
+				facility_name: data.facility_name,
+				address: data,
+				pics: data.facility_pics
+		})
+	})
+  .catch((err)=> {
+    throw(err)
+  })	
 })
 
 app.post("/signup", cpUpload, function(req, res, next) {
