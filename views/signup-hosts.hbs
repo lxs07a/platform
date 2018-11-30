@@ -1,66 +1,149 @@
 <section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#ff795f,#ce1768">
-        <div class="row-parallax-bg">
-          <div class="parallax-wrapper">
-            <div class="parallax-bg">
-              <img src="/images/1.png" alt="">
-            </div>
-          </div>
-          <div class="parallax-overlay"></div>
+  <div class="row-parallax-bg">
+    <div class="parallax-wrapper">
+      <div class="parallax-bg">
+        <img src="/images/1.png" alt="">
+      </div>
+    </div>
+    <div class="parallax-overlay"></div>
+  </div>
+  <div class="centrize">
+    <div class="v-center">
+      <div class="container">
+        <div class="title text-left">
+          <h2 class="orange">Sign up...</h2>                
         </div>
-        <div class="centrize">
-          <div class="v-center">
-            <div class="container">
+      </div>
+    </div>
+  </div>
+</section>
 
-              <div class="title text-left">
-                <h2 class="orange">Sign up...</h2>                
-              </div>
-
-            </div>
-          </div>
+<section class="section-skewed p-0">
+  <form action="/hosts/signup" method="post" enctype="multipart/form-data">
+    <div class="container">
+		  <div class="row">
+			  <div class="col-md-5 mb-25">
+				  <h2 style="font-family: 'Source Sans Pro', sans-serif; color:#000000;">...and mark the beginning of<br><span style="font-size:130%; font-family: 'Pacifico', sans-serif; color:#00c3da;"> your new life</span></h2>              
         </div>
-      </section>
-
-      <section class="section-skewed p-0">
-<form action="/hosts/signup" method="post" enctype="multipart/form-data">
-        <div class="container">
-			<div class="row">
-				<div class="col-md-5 mb-25">
-				<h2 style="font-family: 'Source Sans Pro', sans-serif; color:#000000;">...and mark the beginning of<br><span style="font-size:130%; font-family: 'Pacifico', sans-serif; color:#00c3da;"> your new life</span></h2>              
-              </div>
-			</div>
-          <div class="row">
-            <div class="col-md-5 mb-25">
+		  </div>
+      <div class="row">
+        <div class="col-md-5 mb-25">
 			  </div>
 			  <div class="col-md-5 mb-25">
-				 <div class="row">
-  </div>
-
-              <div class="form-group">
-	
-         
-                <input class="form-control input-sm" type="text" name="name" placeholder="name">
-  
-                <input class="form-control input-sm" type="text" name="city" placeholder="city">
-				  <input class="form-control input-sm" type="email" name="email" placeholder="Email address">
-          <input type="file" name="facility_pics" multiple>
-              </div>
-				  <div class="form-group">
-				  <label>Nickname</label>
-                <input class="form-control input-sm" type="text" name="country" placeholder="country">
-					  <input class="form-control input-sm" type="password" name="password" placeholder="password">
-              </div>
-          
-				  <div class="form-group">
-                <div class="checkout-submit">
-                  <button class="btn btn-color btn-block" type="submit">Submit</button>
-                </div>
-              </div>
-              </div>
-              
-            </div>
-          </div>   
-          </form>     
-      </section>
+				  <div class="row">
+          </div>
+          <div class="form-group">
+				    <label>Name</label>
+            <p class="small">Name of the contact person at your non-profit</p>
+            <input class="form-control input-sm" type="text" name="contact_person" placeholder="Contact person">
+          </div>
+          <div class="form-group">
+            <label>Picture</label>
+            <br>
+            <input id="uploadFile" placeholder="Upload a picture of the contact person" disabled="disabled" />
+				    <div class="fileUpload btn btn-primary">
+					      <span>Upload</span>
+					  <input id="uploadBtn" type="file" name="profilepic" class="upload" />
+				    </div>
+			    </div>
+          <hr>
+          <div class="form-group">
+				    <label>Non-Profit Name</label>
+            <p class="small">Name of the your school or non-profit</p>
+            <input class="form-control input-sm" type="text" name="facility_name" placeholder="Contact person">
+          </div>
+          <div class="form-group">
+            <label>Cover Picture</label>
+            <br>
+            <input id="uploadFile" placeholder="This will be the main picture of this profile" disabled="disabled"/>
+				    <div class="fileUpload btn btn-primary">
+					    <span>Upload</span>
+					  <input id="uploadBtn" type="file" name="cover_pic" class="upload" />
+				    </div>
+			    </div> 
+          <hr>         
+          <div class="form-group">
+            <label>Email address</label>
+            <input class="form-control input-sm" type="email" name="email" placeholder="Email address">
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <input class="form-control input-sm" type="text" name="street" placeholder="Street + number">
+          </div>
+          <div class="form-group" style="width: 100%;">
+            <input class="form-control input-sm" type="text" name="postcode" placeholder="Postcode" style="display: inline; width: 40%;">
+            <input class="form-control input-sm" type="text" name="city" placeholder="City"  style="display: inline; width: 59%;">
+          </div>
+          <div class="form-group">
+              <select id="country" name="country" class="form-control input-sm"></select>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label>Tell Us About Your Non-Profit</label>
+            <p>What do you do and for who?</p>
+            <textarea class="form-control input-sm" type="text" name="question1" placeholder="Question 1"></textarea>
+          </div>
+          <div class="form-group">
+            <p>What is one thing you would like to change in the world?</p>
+            <textarea class="form-control input-sm" type="text" name="question2" placeholder="Question 2"></textarea>
+          </div>
+          <div class="form-group">
+            <p>What do you expect from your guest?</p>
+            <textarea class="form-control input-sm" type="text" name="question3" placeholder="Question 3"></textarea>
+          </div>
+          <hr>         
+          <div class="form-group">
+            <label>When are you ready to start hosting?</label>
+            <input class="form-control input-sm" type="date"  name="start_date">
+          </div>
+          <div class="form-group">
+            <label>End date</label>
+            <input class="form-control input-sm" type="date" name="end_date">
+          </div>  
+          <hr>
+          <div class="form-group">
+            <label>Pictures of your facility</label>
+            <br>
+            <input id="uploadFile" placeholder="Choose up to 5" disabled="disabled"/>
+				    <div class="fileUpload btn btn-primary">
+					    <span>Upload</span>
+					    <input type="file" name="facility_pics" multiple>
+				    </div>
+			    </div> 
+          <div class="form-group">
+            <label>Pictures of your accommodation</label>
+            <br>
+            <input id="uploadFile" placeholder="Choose up to 5" disabled="disabled"/>
+				    <div class="fileUpload btn btn-primary">
+					    <span>Upload</span>
+					    <input type="file" name="accommodation_pics" multiple>
+				    </div>
+			    </div> 
+          <div class="form-group">
+            <label>Pictures of your classroom</label>
+            <br>
+            <input id="uploadFile" placeholder="Choose up to 5" disabled="disabled"/>
+				    <div class="fileUpload btn btn-primary">
+					    <span>Upload</span>
+					    <input type="file" name="classroom_pics" multiple>
+				    </div>
+			    </div> 
+          <hr>
+          <div class="form-group">
+				    <label>Username</label>
+            <p class="small">Pick a username for this profile--you will use it for login</p>
+            <input class="form-control input-sm" type="text" name="username" placeholder="Username">
+          </div>          
+          <div class="form-group">
+            <label>Password</label>
+              <input class="form-control input-sm" type="password" name="password" placeholder="Choose a strong password">
+          </div> 
+          <hr>
+        </div>        
+      </div>
+    </div>   
+  </form>     
+</section>
 
 <section class="grey-bg">
         <div class="container">

@@ -7,14 +7,14 @@ var Host = mongoose.model("hosts", new Schema ({
     contact_person: String,
     contact_person_pic: String,
     facility_name: String,
+    cover_pic: String,
     email: String,
     url_name: String,
     
     country: String,
     continent: String,
     address: {
-        streetname: String,
-        streetnumber: Number,
+        street: String,
         postcode: String,
 		city: String,
         country: String

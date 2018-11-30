@@ -14,7 +14,7 @@ mongoose.connect("mongodb://localhost:27017/change", {
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-  secret: ['LULU Carrot', 'Just Do It'],
+  secret: ['LULU Carrot', 'Just Fucking Do It Already'],
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
@@ -58,8 +58,6 @@ app.get('/list', function(req, res, next) {
 	})
 })
 
-
-
 //Sign Up page for hosts
 app.get('/signup', function(req, res) {
   res.render('signup-hosts')
@@ -84,8 +82,8 @@ app.get('/single/:hostId', function (req, res) {
 app.post("/signup", cpUpload, function(req, res, next) {
   Host.find({email: req.body.email})
   .then ((result) => {
-    // if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
-    // else {
+    if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
+    else {
       bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
 
         var host = new Host({
@@ -99,31 +97,29 @@ app.post("/signup", cpUpload, function(req, res, next) {
         }) 
         host.facility_pics = facilityArray
 
-        // let accommodationArray = req.files['accommodation_pics'].map((obj) => {
-        //   return obj.path
-        // }) 
-        // host.accommodation_pics = accommodationArray
+        let accommodationArray = req.files['accommodation_pics'].map((obj) => {
+          return obj.path
+        }) 
+        host.accommodation_pics = accommodationArray
 
-        // let classroomArray = req.files['classroom_pics'].map((obj) => {
-        //   return obj.path
-        // }) 
-        // host.accommodation_pics = classroomArray
+        let classroomArray = req.files['classroom_pics'].map((obj) => {
+          return obj.path
+        }) 
+        host.accommodation_pics = classroomArray
 
-        // let urlString = req.body.name + req.body.country
-        // host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
+        let urlString = req.body.name + req.body.country
+        host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
         
         host.save(function(err){
           console.log(host)
           res.send("Success!")
         })
       })
-    // }
+    }
   })
   .catch((err)=> {
     throw(err)
   })
 })
-
-
 
 module.exports = app;
