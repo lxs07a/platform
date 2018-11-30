@@ -39,7 +39,8 @@ const saltRounds = 9
 
 const multer  = require('multer')
 const upload = multer({ dest: './public/uploads/' })
-var cpUpload = upload.fields([{ name: 'contact_person_pic', maxCount: 1 }, 
+var cpUpload = upload.fields([{ name: 'contact_person_pic', maxCount: 1 },
+							  { name: 'cover_pic', maxCount: 1 },
                               { name: 'facility_pics', maxCount: 5 },  
                               { name: 'accommodation_pics', maxCount: 5 }, 
                               { name: 'classroom_pics', maxCount: 5 }])
@@ -71,7 +72,7 @@ app.get('/single/:hostId', function (req, res) {
 				city: data.city,
 				facility_name: data.facility_name,
 				address: data,
-				pics: data.facility_pics
+				cover_pic: data.cover_pic
 		})
 	})
   .catch((err)=> {
@@ -91,21 +92,30 @@ app.post("/signup", cpUpload, function(req, res, next) {
         })
 
         host.password = hash
+		  
+		host.cover_pic = req.body.cover_pic
+		host.profilepic = req.body.profilepic
+		  
+//		let facilityArray = req.files['facility_pics'].map((obj) => {
+//          return obj.path
+//        }) 
+//        host.facility_pics = facilityArray
+		  
+		  
+//        let facilityArray = req.files['facility_pics'].map((obj) => {
+//          return obj.path
+//        }) 
+//        host.facility_pics = facilityArray
 
-        let facilityArray = req.files['facility_pics'].map((obj) => {
-          return obj.path
-        }) 
-        host.facility_pics = facilityArray
-
-        let accommodationArray = req.files['accommodation_pics'].map((obj) => {
-          return obj.path
-        }) 
-        host.accommodation_pics = accommodationArray
-
-        let classroomArray = req.files['classroom_pics'].map((obj) => {
-          return obj.path
-        }) 
-        host.accommodation_pics = classroomArray
+//        let accommodationArray = req.files['accommodation_pics'].map((obj) => {
+//          return obj.path
+//        }) 
+//        host.accommodation_pics = accommodationArray
+//
+//        let classroomArray = req.files['classroom_pics'].map((obj) => {
+//          return obj.path
+//        }) 
+//        host.accommodation_pics = classroomArray
 
         let urlString = req.body.name + req.body.country
         host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
