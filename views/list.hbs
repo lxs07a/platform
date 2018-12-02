@@ -1,4 +1,4 @@
-<section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#ff795f,#ce1768">
+<section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#0c5869,#61c4da">
    <div class="row-parallax-bg">
       <div class="parallax-wrapper">
          <div class="parallax-bg">
@@ -8,14 +8,18 @@
       <div class="parallax-overlay"></div>
    </div>
    <div class="centrize">
-      <div class="v-center">
-         <div class="container">
-            <div class="title text-left">
-               <h2 class="orange">Hosts</h2>
+          <div class="v-center">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="title text-center">
+                    <h1>Hosts</h1>                    
+                  </div>
+                </div>
+              </div>
             </div>
-         </div>
-      </div>
-   </div>
+          </div>
+        </div>
 </section>
 <section class="section-skewed p-0">
    <div class="container">
@@ -32,8 +36,8 @@
             <div class="work-item {{this.continent}}">
                <div class="work-detail">
                   <a href="/hosts/single/{{this._id}}">
-                     {{#if this.images}}
-                     <img src="{{this.images.path}}" alt=""> <!-- Needs to be changed to the correct URL -->
+                     {{#if this.cover_pic}}
+                     <img src="../../uploads/{{this.cover_pic}}" alt=""> <!-- Needs to be changed to the correct URL -->
                      {{else}}
                      <img src="/images/placeholder.jpg" alt="">
                      {{/if}}

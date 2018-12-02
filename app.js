@@ -41,10 +41,11 @@ app.use('/', indexController)
 app.use('/users', usersController)
 app.use('/hosts', hostsController)
 
-// catch 404 and forward to error handler
+// Handle 404 - Keep this as a last route
 app.use(function(req, res, next) {
-  next(createError(404))
-})
+    res.status(404);
+    res.render('404');
+});
 
 // error handler
 app.use(function(err, req, res, next) {
