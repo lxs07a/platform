@@ -56,13 +56,13 @@ app.post("/signup", cpUpload, function
           var user = new User({
             ...req.body
           })
-          user.profilepic = req.files['profilepic'][0].path
-          user.governmentId = req.files['governmentId'][0].path
+          user.profilepic = req.files['profilepic'][0].filename
+          user.governmentId = req.files['governmentId'][0].filename
           user.password = hash
           user.save(function(err){
             //start session
             req.session.currentUser = req.body.email
-            res.render('hosts/list')
+            res.render('users/list')
           })
         })
       }
@@ -118,6 +118,20 @@ app.post("/login", function
       throw(err)
     })
   }
+})
+
+//List freelancers
+app.get('/list', function(req, res, next) {
+	User.find({}, function (err, result) {
+		if (err) {
+			console.log("ERROR!!", err);
+			res.end();
+		} else {
+			res.render("userslist", {
+					freelancers: result
+				})
+		}
+	})
 })
 
 module.exports = app

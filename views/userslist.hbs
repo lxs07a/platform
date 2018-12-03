@@ -13,7 +13,7 @@
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                   <div class="title text-center">
-                    <h1>Hosts</h1>                    
+                    <h1>Freelancers</h1>                    
                   </div>
                 </div>
               </div>
@@ -21,73 +21,40 @@
           </div>
         </div>
 </section>
+
 <section class="section-skewed p-0">
    <div class="container">
       <div class="row">
-         <ul id="filters">
+         {{!-- <ul id="filters">
             <li class="active" data-filter="*">All</li>
             <li data-filter=".europe">Europe</li>
             <li data-filter=".asia">Asia</li>
             <li data-filter=".africa">Africa</li>
             <li data-filter=".south-america">South America</li>
-         </ul>
+         </ul> --}}
          <div class="four-col with-spacing" id="works-grid">
-			 {{#each hosts}}				
+			 {{#each freelancers}}				
             <div class="work-item {{this.continent}}">
                <div class="work-detail">
-                  <a href="/hosts/single/{{this.url_name}}">
-                     {{#if this.cover_pic}}
-                     <img src="../../uploads/{{this.cover_pic}}" alt=""> <!-- Needs to be changed to the correct URL -->
+                  <a href="/hosts/single/{{this._id}}">
+                     {{#if this.profilepic}}
+                     <img src="../../uploads/{{this.profilepic}}" alt=""> <!-- Needs to be changed to the correct URL -->
                      {{else}}
                      <img src="/images/placeholder.jpg" alt="">
                      {{/if}}
                   </a>
                   <div class="work-info-alt">
                      <p>{{this.address.city}}, {{this.country}}</p>
-                     <h3><a href="#">{{this.facility_name}}</a></h3>
+                     <h3><a href="#">{{this.nickname}}</a></h3>
                   </div>
                </div>
             </div>
-            {{/each}}			 
-			 
-            <!-- STATIC EXAMPLES -->
-            <div class="work-item asia">
-               <div class="work-detail">
-                  <a href="#">
-                  <img src="/images/portfolio-1.jpg" alt="">
-                  </a>
-                  <div class="work-info-alt">
-                     <p>Beijing, China</p>
-                     <h3><a href="#">I love Mao School</a></h3>
-                  </div>
-               </div>
-            </div>
-            <div class="work-item south-america">
-               <div class="work-detail">
-                  <a href="#">
-                  <img src="/images/portfolio-2.jpg" alt="">
-                  </a>
-                  <div class="work-info-alt">
-                     <p>Buenes Aires, Argentina</p>
-                     <h3><a href="#">School of Videl</a></h3>
-                  </div>
-               </div>
-            </div>
-            <div class="work-item europe">
-               <div class="work-detail">
-                  <a href="#">
-                  <img src="/images/portfolio-3.jpg" alt="">
-                  </a>
-                  <div class="work-info-alt">
-                     <p>Napoli, Italy</p>
-                     <h3><a href="#">Scuola di Paolo</a></h3>
-                  </div>
-               </div>
-            </div>
+            {{/each}}           
          </div>
       </div>
    </div>
 </section>
+
 <section class="grey-bg">
    <div class="container">
       <div class="title text-center">
