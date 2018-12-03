@@ -1,0 +1,89 @@
+<section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#0c5869,#61c4da">
+   <div class="row-parallax-bg">
+      <div class="parallax-wrapper">
+         <div class="parallax-bg">
+            <img src="/images/2.jpg" alt="">
+         </div>
+      </div>
+      <div class="parallax-overlay"></div>
+   </div>
+   <div class="centrize">
+          <div class="v-center">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="title text-center">
+                    <h1>Freelancers</h1>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</section>
+<section class="section-skewed p-0">
+   <div class="container">
+      <div class="row">
+         <div class="four-col with-spacing" id="works-grid">
+			 {{#each freelancers}}				
+            <div class="work-detail">
+               <a href="/users/single/{{this._id}}">
+                  {{#if this.profilepic}}
+                  <img src="../../uploads/{{this.profilepic}}" alt=""> <!-- Needs to be changed to the correct URL -->
+                  {{else}}
+                  <img src="/images/placeholder.jpg" alt="">
+                  {{/if}}
+               </a>
+               <div class="work-info-alt">
+                  <p>{{this.address.city}}, {{this.address.country}}</p>
+                  <h3><a href="#">{{this.nickname}}</a></h3>
+               </div>
+            </div>
+            {{/each}}			 
+			 
+            <!-- STATIC EXAMPLES -->
+            <div class="work-item asia">
+               <div class="work-detail">
+                  <a href="#">
+                  <img src="/images/portfolio-1.jpg" alt="">
+                  </a>
+                  <div class="work-info-alt">
+                     <p>Beijing, China</p>
+                     <h3><a href="#">I love Mao School</a></h3>
+                  </div>
+               </div>
+            </div>
+            <div class="work-item south-america">
+               <div class="work-detail">
+                  <a href="#">
+                  <img src="/images/portfolio-2.jpg" alt="">
+                  </a>
+                  <div class="work-info-alt">
+                     <p>Buenes Aires, Argentina</p>
+                     <h3><a href="#">School of Videl</a></h3>
+                  </div>
+               </div>
+            </div>
+            <div class="work-item europe">
+               <div class="work-detail">
+                  <a href="#">
+                  <img src="/images/portfolio-3.jpg" alt="">
+                  </a>
+                  <div class="work-info-alt">
+                     <p>Napoli, Italy</p>
+                     <h3><a href="#">Scuola di Paolo</a></h3>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="grey-bg">
+   <div class="container">
+      <div class="title text-center">
+         <h4 class="upper">We are digital thinkers</h4>
+         <h2>Creative Team</h2>
+      </div>
+   </div>
+</section>

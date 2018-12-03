@@ -120,4 +120,18 @@ app.post("/login", function
   }
 })
 
+//List freelancers
+app.get('/list', function(req, res, next) {
+	User.find({}, function (err, result) {
+		if (err) {
+			console.log("ERROR!!", err);
+			res.end();
+		} else {
+			res.render("userslist", {
+					freelancers: result
+				})
+		}
+	})
+})
+
 module.exports = app
