@@ -162,7 +162,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #1f1f1f;
   line-height: 1.3;
 }
@@ -2494,6 +2494,11 @@ section.gradient-bg:not([data-gradients]) {
 .btn-block + .btn-block {
   margin-top: 15px;
 }
+
+.btn-primary {
+    background-color: #00c2da;
+}
+
 /*
   03
   Navbar
@@ -2585,7 +2590,7 @@ section.gradient-bg:not([data-gradients]) {
 #navbar .navigation-menu > li > a {
   display: block;
   color: #fff;
-  font-size: 13px;
+  font-size: 18px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   -webkit-transition: all .3s ease;
@@ -2683,7 +2688,15 @@ section.gradient-bg:not([data-gradients]) {
   padding: 13px 15px;
 }
 
-#navbar .logo h2 { color: #fff!important; }
+@media only screen and (max-width: 991px) {
+#navbar .logo h2 { color: #00c3da; }
+}
+
+@media only screen and (min-width: 992px) {
+#navbar .logo h2 { color: #fff; }
+}
+
+#navbar .logo h2 { color: #fff; }
 #navbar.stick .logo h2 { color: #00c3da!important; }
 
 #navbar.stick.dark-menu {
@@ -2928,9 +2941,9 @@ section.gradient-bg:not([data-gradients]) {
     clear: both;
     line-height: 1.4;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 0.03em;
-    color: #787878;
+    color: #00c3da;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
   }
@@ -4595,7 +4608,7 @@ section.section-skewed.section-bordered #home-slider:after {
   position: relative;
   padding: 8px 20px;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 15px;
   margin: 0 5px;
   cursor: pointer;
   -webkit-transition: all .3s ease;
@@ -6359,7 +6372,10 @@ input[type=date]::-webkit-inner-spin-button {
     display: none;
 }
 
-#uploadFile { background-color: white; border-width: 0px!important }
+#uploadFile { background-color: #f6f6f6; border-width: 0px!important; padding: 0 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px; margin: 10px 10px 10px 0px; }
 
 .fileUpload {
     position: relative;
@@ -6405,7 +6421,7 @@ input[type=date]::-webkit-inner-spin-button {
   box-shadow: none;
 }
 .form-control:focus {
-  border-color: #1f1f1f;
+  border-color: #61c4da;
 }
 .form-control.input-sm {
   height: 40px;
@@ -6464,6 +6480,12 @@ textarea.form-control {
   appearance: none;
   border: 0;
 }
+
+select option:checked{
+  background: #61c4da -webkit-linear-gradient(bottom, #61c4da 0%, #61c4da 100%);
+	color:#fff!important;
+}
+
 /*
   14
   Timeline

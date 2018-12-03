@@ -1,21 +1,25 @@
-<section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#ff795f,#ce1768">
+<section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#0c5869,#61c4da">
   <div class="row-parallax-bg">
     <div class="parallax-wrapper">
       <div class="parallax-bg">
-        <img src="/images/1.png" alt="">
+        <img src="/images/2.jpg" alt="">
       </div>
     </div>
     <div class="parallax-overlay"></div>
   </div>
-  <div class="centrize">
-    <div class="v-center">
-      <div class="container">
-        <div class="title text-left">
-          <h2 class="orange">Sign up...</h2>                
+   <div class="centrize">
+          <div class="v-center">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="title text-center">
+                    <h1>Sign up...</h1>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section class="section-skewed p-0">
@@ -23,12 +27,8 @@
     <div class="container">
 		  <div class="row">
 			  <div class="col-md-5 mb-25">
-				  <h2 style="font-family: 'Source Sans Pro', sans-serif; color:#000000;">...and mark the beginning of<br><span style="font-size:130%; font-family: 'Pacifico', sans-serif; color:#00c3da;"> your new life</span></h2>              
+				  <h2 style="color:#000000;">...and mark the beginning of<br><span style="font-size:160%; font-family: 'Pacifico', sans-serif; color:#00c3da;"> your new life !</span></h2>              
         </div>
-		  </div>
-      <div class="row">
-        <div class="col-md-5 mb-25">
-			  </div>
 			  <div class="col-md-5 mb-25">
 				  <div class="row">
           </div>
@@ -39,8 +39,8 @@
           </div>
           <div class="form-group">
             <label>Picture</label>
-            <br>
-            <input id="uploadFile" placeholder="Upload a picture of the contact person" disabled="disabled" />
+            <p class="small">Upload picture of contact person</p>
+            <input class="uploadFile" placeholder="Upload picture..." disabled="disabled" />
 				    <div class="fileUpload btn btn-primary">
 					      <span>Upload</span>
 					  <input id="uploadBtn" type="file" name="contact_person_pic" class="upload" />
@@ -54,8 +54,9 @@
           </div>
           <div class="form-group">
             <label>Cover Picture</label>
-            <br>
-            <input id="uploadFile" placeholder="This will be the main picture of this profile" disabled="disabled"/>
+            <p class="small">Upload picture of your location</p>
+            <input class="uploadFile" placeholder="Upload picture..." disabled="disabled"/>
+			  <p id="testss"></p>
 				    <div class="fileUpload btn btn-primary">
 					    <span>Upload</span>
 					  <input id="uploadBtn" type="file" name="cover_pic" class="upload" />
@@ -76,6 +77,14 @@
           </div>
           <div class="form-group">
               <select id="country" name="country" class="form-control input-sm"></select>
+          </div>
+		  <div class="form-group">
+              <select id="continent" name="continent" class="form-control input-sm" placeholder="Continent">
+				  <option value="volvo">Europe</option>
+				  <option value="saab">Africa</option>
+				  <option value="mercedes">Asia</option>
+				  <option value="audi">South Africa</option>
+			  </select>
           </div>
           <hr>
           <div class="form-group">
@@ -101,6 +110,7 @@
             <input class="form-control input-sm" type="date" name="end_date">
           </div>  
           <hr>
+<!--
           <div class="form-group">
             <label>Pictures of your facility</label>
             <br>
@@ -128,6 +138,7 @@
 					    <input type="file" name="classroom_pics" multiple>
 				    </div>
 			    </div> 
+-->
           <hr>
           <div class="form-group">
 				    <label>Username</label>
@@ -146,6 +157,10 @@
           <hr>
         </div>        
       </div>
+		  </div>
+      <div class="row">
+
+			  
     </div>   
   </form>     
 </section>

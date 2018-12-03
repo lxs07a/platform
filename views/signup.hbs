@@ -2,7 +2,7 @@
   <div class="row-parallax-bg">
     <div class="parallax-wrapper">
       <div class="parallax-bg">
-        <img src="/images/1.png" alt="">
+        <img src="/images/2.png" alt="">
       </div>
     </div>
     <div class="parallax-overlay"></div>
@@ -78,7 +78,7 @@
         </div>
         <div class="form-group">
           <label>Languages you speak</label>
-					<select multiple class="form-control bfh-languages" data-language="en"></select>
+					<select class="form-control bfh-languages" multiple="multiple"></select>
         </div>
         <hr>
 			  <div class="form-group">
@@ -222,3 +222,21 @@
           </div>
         </div>
       </section>
+		
+		<script>
+window.onmousedown = function (e) {
+    var el = e.target;
+    if (el.tagName.toLowerCase() == 'option' && el.parentNode.hasAttribute('multiple')) {
+        e.preventDefault();
+
+        // toggle selection
+        if (el.hasAttribute('selected')) el.removeAttribute('selected');
+        else el.setAttribute('selected', '');
+
+//        // hack to correct buggy behavior
+//        var select = el.parentNode.cloneNode(true);
+//        el.parentNode.parentNode.replaceChild(select, el.parentNode);
+    }
+}
+		</script>
+		
