@@ -2494,6 +2494,11 @@ section.gradient-bg:not([data-gradients]) {
 .btn-block + .btn-block {
   margin-top: 15px;
 }
+
+.btn-primary {
+    background-color: #00c2da;
+}
+
 /*
   03
   Navbar
@@ -2585,7 +2590,7 @@ section.gradient-bg:not([data-gradients]) {
 #navbar .navigation-menu > li > a {
   display: block;
   color: #fff;
-  font-size: 13px;
+  font-size: 18px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   -webkit-transition: all .3s ease;
@@ -2936,9 +2941,9 @@ section.gradient-bg:not([data-gradients]) {
     clear: both;
     line-height: 1.4;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 0.03em;
-    color: #787878;
+    color: #00c3da;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
   }
@@ -6367,7 +6372,10 @@ input[type=date]::-webkit-inner-spin-button {
     display: none;
 }
 
-#uploadFile { background-color: white; border-width: 0px!important }
+#uploadFile { background-color: #f6f6f6; border-width: 0px!important; padding: 0 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px; margin: 10px 10px 10px 0px; }
 
 .fileUpload {
     position: relative;
