@@ -41,6 +41,9 @@ body {
   font-size: 16px;
   line-height: 1.5;
 }
+
+.pacifico { font-family: 'Pacifico', cursive; }
+
 body.boxed-layout {
   background-color: #f2f2f2;
 }
@@ -722,7 +725,7 @@ section.page-title .bp-desktop({
   -webkit-animation: blink 0.7s infinite;
   animation: blink 0.7s infinite;
   font-weight: lighter;
-  color: #787878;
+  color: #00c3da;
 }
 .typed-cursor {
   display: none;
@@ -3696,7 +3699,7 @@ section.gradient-bg:not([data-gradients]) {
 #home-slider {
   height: 100vh;
   position: relative;
-  background-color: #1f1f1f;
+  background-color: #dedede;
 }
 section.section-skewed.section-bordered #home-slider:after {
   content: none;
@@ -3733,10 +3736,10 @@ section.section-skewed.section-bordered #home-slider:after {
   background-color: rgba(0, 195, 218, 0.55);
 }
 .slide-wrap.dark-overlay {
-  background-color: rgba(31, 31, 31, 0.7);
+  background-color: rgba(31, 31, 31, 0.2);
 }
 .slide-wrap.light-overlay {
-  background-color: rgba(31, 31, 31, 0.1);
+  background-color: rgba(31, 31, 31, 0.2);
   color: #1f1f1f;
 }
 .slide-wrap.white-overlay {
@@ -3791,7 +3794,7 @@ section.section-skewed.section-bordered #home-slider:after {
   font-size: 62px;
 }
 .slide-content h1.font-medium {
-  font-size: 70px;
+  font-size: 60px;
 }
 .slide-content h1.font-big {
   font-size: 100px;
@@ -6220,7 +6223,7 @@ section.section-skewed.section-bordered #home-slider:after {
 }
 .form-group label {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 100;
 }
 .form-group .checkbox input[type=checkbox],
 .form-group .radio input[type=checkbox],
@@ -6399,10 +6402,8 @@ input[type=date]::-webkit-inner-spin-button {
 }
 .form-group label {
     color: #61c4da;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 500;
+    font-weight: 100;
     font-size: 22px;
-    font-weight: 400;
 }
 .form-control {
   height: 50px;

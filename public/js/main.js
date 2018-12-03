@@ -410,8 +410,8 @@
     $('.typed-words').each(function(index, el) {
       $(el).typed({
         strings: $(el).data('strings'),
-        startDelay: 0,
-        typeSpeed: 0,
+        startDelay: 3000,
+        typeSpeed: 60,
         backDelay: 1500,
         backSpeed: 0,
         loop: true,
