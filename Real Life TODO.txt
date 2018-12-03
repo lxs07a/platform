@@ -1,0 +1,4 @@
+1. Break up registration into multiple sections: 
+    Minimal info and Consent on the first page 
+    and an option to Skip on the next page. 
+    Make completing profile necessary before contacting the host.

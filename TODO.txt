@@ -1,0 +1,4 @@
+1. "Log In"/"Sign Up" overlaps transparent navbar 
+2. Login.hbs -- make "No account yet? Sign Up" prettier
+3. Signup.hbs -- add "Sign up as a host instead" link/button to the left 
+4. Fix Footer

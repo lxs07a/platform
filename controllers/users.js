@@ -52,8 +52,6 @@ app.post("/signup", cpUpload, function
     .then ((result) => {
       if(result[0]) res.send("This email already exists, would you like to log in instead of signing up again?")
       else {
-        //start session
-        req.session.currentUser = req.body.email
         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
           var user = new User({
             ...req.body
@@ -62,8 +60,57 @@ app.post("/signup", cpUpload, function
           user.governmentId = req.files['governmentId'][0].path
           user.password = hash
           user.save(function(err){
-            res.send("Success!")
+            //start session
+            req.session.currentUser = req.body.email
+            res.render('hosts/list')
           })
+        })
+      }
+    })
+    .catch((err)=> {
+      throw(err)
+    })
+  }
+})
+
+//Login page
+app.get('/login', function(req, res) {
+  res.render('login')
+})
+
+app.post("/login", function
+  (req, res) {
+    //log out previous user
+  if (req.session.currentUser!=undefined) req.session.destroy()
+  else {
+    //check if there's a freelancer with this email
+    User.find({email: req.body.login-email})
+    .then ((result) => {
+      if(result[0]) {
+        bcrypt.compare(req.body.password, result[0].password, function(err, res) {
+          if(false) res.send("Wrong email/password combination")
+          else {
+            //start session
+            req.session.currentUser = req.body.email
+            res.render('hosts/list')
+          }
+        })
+      }
+      //If there is no such freelancer, check if there's a host with this email
+      else {
+        Host.find({email: req.body.login-email})
+        .then((result) => {
+          if(result[0]===undefined) {
+            res.render("No such email found. Would you like to sign up?")
+          }
+        })
+        bcrypt.compare(req.body.password, result[0].password, function(err, res) {
+          if(false) res.send("Wrong username/password combination")
+          else {
+            //start session
+            req.session.currentUser = req.body.email
+            res.render('users/list')
+          }
         })
       }
     })
