@@ -56,8 +56,8 @@ app.post("/signup", cpUpload, function
           var user = new User({
             ...req.body
           })
-          user.profilepic = req.files['profilepic'][0].path
-          user.governmentId = req.files['governmentId'][0].path
+          user.profilepic = req.files['profilepic'][0].filename
+          user.governmentId = req.files['governmentId'][0].filename
           user.password = hash
           user.save(function(err){
             //start session

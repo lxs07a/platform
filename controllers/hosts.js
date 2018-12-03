@@ -92,34 +92,46 @@ app.post("/signup", cpUpload, function(req, res, next) {
         })
 
         host.password = hash
+
+        host.address.street = req.body.street
+        host.address.postcode = req.body.postcode
+        host.address.city = req.body.city
         
-//        host.contact_person_pic = req.file['contact_person_pic'][0].path
+        if(req.files['contact_person_pic']) {
+          host.contact_person_pic = req.files['contact_person_pic'][0].filename
+        }
 
-        host.cover_pic = req.files['cover_pic'][0].filename
+        if(req.files['cover_pic']) {
+          host.cover_pic = req.files['cover_pic'][0].filename
+        }
 		
-		if(req.files['facility_pics']) {
-        let facilityArray = req.files['facility_pics'].map((obj) => {
-          return obj.path
-        })
-		}
-		  
-//        host.facility_pics = facilityArray
-//
-//        let accommodationArray = req.files['accommodation_pics'].map((obj) => {
-//          return obj.path
-//        }) 
-//        host.accommodation_pics = accommodationArray
-//
-//        let classroomArray = req.files['classroom_pics'].map((obj) => {
-//          return obj.path
-//        }) 
-//        host.accommodation_pics = classroomArray
+        if(req.files['facility_pics']) {
+            let facilityArray = req.files['facility_pics'].map((obj) => {
+              return obj.path
+            })
+            host.facility_pics = facilityArray
+        }
 
-        let urlString = req.body.name + req.body.country
+        if(req.files['accommodation_pics']) {
+          let accommodationArray = req.files['accommodation_pics'].map((obj) => {
+            return obj.path
+          }) 
+          host.accommodation_pics = accommodationArray
+        }
+
+        if(req.files['classroom_pics']) {        
+          let classroomArray = req.files['classroom_pics'].map((obj) => {
+            return obj.path
+          }) 
+          host.classroom_pics = classroomArray
+        }
+
+        let urlString = req.body.facility_name + req.body.country
         host.url_name = urlString.replace(/\s+/g, '-').toLowerCase() //?
         
         host.save(function(err){
-          console.log(host)
+          console.log("Host is " + host)
+
           res.send("Success!")
         })
       })

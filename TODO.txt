@@ -1,2 +1,3 @@
+Upload picture doesn't display the chosen file 
 3. Signup.hbs -- add "Sign up as a host instead" link/button to the left 
 4. Fix Footer

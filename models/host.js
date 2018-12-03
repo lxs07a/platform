@@ -17,7 +17,6 @@ var Host = mongoose.model("hosts", new Schema ({
         street: String,
         postcode: String,
 		city: String,
-        country: String
     },
 
     question1: String,
