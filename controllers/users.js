@@ -62,7 +62,7 @@ app.post("/signup", cpUpload, function
           user.save(function(err){
             //start session
             req.session.currentUser = req.body.email
-            res.render('hosts/list')
+            res.render('users/list')
           })
         })
       }

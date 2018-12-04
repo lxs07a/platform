@@ -72,7 +72,8 @@ app.get('/single/:hostId', function (req, res) {
 				city: data.city,
 				facility_name: data.facility_name,
 				address: data,
-				cover_pic: data.cover_pic
+        cover_pic: data.cover_pic,
+        url_name: data.url_name
 		})
 	})
   .catch((err)=> {

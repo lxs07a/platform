@@ -21,64 +21,40 @@
           </div>
         </div>
 </section>
+
 <section class="section-skewed p-0">
    <div class="container">
       <div class="row">
+         {{!-- <ul id="filters">
+            <li class="active" data-filter="*">All</li>
+            <li data-filter=".europe">Europe</li>
+            <li data-filter=".asia">Asia</li>
+            <li data-filter=".africa">Africa</li>
+            <li data-filter=".south-america">South America</li>
+         </ul> --}}
          <div class="four-col with-spacing" id="works-grid">
 			 {{#each freelancers}}				
-            <div class="work-detail">
-               <a href="/users/single/{{this._id}}">
-                  {{#if this.profilepic}}
-                  <img src="../../uploads/{{this.profilepic}}" alt=""> <!-- Needs to be changed to the correct URL -->
-                  {{else}}
-                  <img src="/images/placeholder.jpg" alt="">
-                  {{/if}}
-               </a>
-               <div class="work-info-alt">
-                  <p>{{this.address.city}}, {{this.address.country}}</p>
-                  <h3><a href="#">{{this.nickname}}</a></h3>
-               </div>
-            </div>
-            {{/each}}			 
-			 
-            <!-- STATIC EXAMPLES -->
-            <div class="work-item asia">
+            <div class="work-item {{this.continent}}">
                <div class="work-detail">
-                  <a href="#">
-                  <img src="/images/portfolio-1.jpg" alt="">
+                  <a href="/hosts/single/{{this._id}}">
+                     {{#if this.profilepic}}
+                     <img src="../../uploads/{{this.profilepic}}" alt=""> <!-- Needs to be changed to the correct URL -->
+                     {{else}}
+                     <img src="/images/placeholder.jpg" alt="">
+                     {{/if}}
                   </a>
                   <div class="work-info-alt">
-                     <p>Beijing, China</p>
-                     <h3><a href="#">I love Mao School</a></h3>
+                     <p>{{this.address.city}}, {{this.country}}</p>
+                     <h3><a href="#">{{this.nickname}}</a></h3>
                   </div>
                </div>
             </div>
-            <div class="work-item south-america">
-               <div class="work-detail">
-                  <a href="#">
-                  <img src="/images/portfolio-2.jpg" alt="">
-                  </a>
-                  <div class="work-info-alt">
-                     <p>Buenes Aires, Argentina</p>
-                     <h3><a href="#">School of Videl</a></h3>
-                  </div>
-               </div>
-            </div>
-            <div class="work-item europe">
-               <div class="work-detail">
-                  <a href="#">
-                  <img src="/images/portfolio-3.jpg" alt="">
-                  </a>
-                  <div class="work-info-alt">
-                     <p>Napoli, Italy</p>
-                     <h3><a href="#">Scuola di Paolo</a></h3>
-                  </div>
-               </div>
-            </div>
+            {{/each}}           
          </div>
       </div>
    </div>
 </section>
+
 <section class="grey-bg">
    <div class="container">
       <div class="title text-center">
