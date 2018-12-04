@@ -1,8 +1,8 @@
-<section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#ff795f,#ce1768">
+<section class="page-title text-dark gradient-bg section-skewed big-padding-bt" data-gradients="#0c5869,#61c4da">
   <div class="row-parallax-bg">
     <div class="parallax-wrapper">
       <div class="parallax-bg">
-        <img src="/images/2.png" alt="">
+        <img src="/images/1.png" alt="">
       </div>
     </div>
     <div class="parallax-overlay"></div>
@@ -10,8 +10,12 @@
   <div class="centrize">
     <div class="v-center">
       <div class="container">
-        <div class="title text-left">
-          <h2 class="orange">Sign up as an educator...</h2>                
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="title text-center">
+              <h1>Sign up as an educator...</h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -29,12 +33,11 @@
         <div class="col-md-5 mb-25">
         </div>
 			<div class="col-md-5 mb-25">
-				<div class="row">
-        </div>
         <div class="form-group">
 				  <label>Name</label>
           <p class="small">Official name as displayed on your government ID</p>
           <input class="form-control input-sm" type="text" name="firstname" placeholder="First name">
+          <br/>
           <input class="form-control input-sm" type="text" name="lastname" placeholder="Last name">
         </div>
 				<div class="form-group">
@@ -83,19 +86,20 @@
         <hr>
 			  <div class="form-group">
           <label>Pictures</label>
-          <br>
-          <input id="uploadFile" placeholder="Choose a profile picture" disabled="disabled" />
-				  <div class="fileUpload btn btn-primary">
-					  <span>Upload</span>
-					  <input id="uploadBtn" type="file" name="profilepic" class="upload" />
-				  </div>
-			  </div>
-				<div class="form-group">
-          <input id="uploadFile" placeholder="Upload government ID" disabled="disabled" />
+          <div class="box upload">
+					<input type="file" name="profilepic" id="file-3" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple />
+					<label for="file-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Upload your profile picture</span></label>
+				</div>
+        <div class="box upload">
+					<input type="file" name="governmentId" id="file-4" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple />
+					<label for="file-4"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Upload your government ID</span></label>
+				</div>
+			  </div>	
+          {{!-- <input id="uploadFile" placeholder="Upload government ID" disabled="disabled" />
 				  <div class="fileUpload btn btn-primary">
 					<span>Upload</span>
 					<input id="uploadBtn" type="file" name="governmentId" class="upload" />
-				</div>
+				</div> --}}
         <hr>
 				<div class="form-group">
           <label>Tell Us About Yourself</label>
@@ -126,7 +130,7 @@
             <button class="btn btn-color btn-block" type="submit">Submit</button>
         </div>
       </div>
-    </div>
+ 
   </form>     
 </section>
 

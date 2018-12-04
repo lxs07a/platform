@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 var User = require("../models/user.js")
+var Host = require("../models/host.js")
 
 const bcrypt = require('bcryptjs')
 const saltRounds = 9
@@ -84,7 +85,9 @@ app.post("/login", function
   if (req.session.currentUser!=undefined) req.session.destroy()
   else {
     //check if there's a freelancer with this email
-    User.find({email: req.body.login-email})
+
+    var x = req.body.loginemail
+    User.find({email: req.body.loginemail})
     .then ((result) => {
       if(result[0]) {
         bcrypt.compare(req.body.password, result[0].password, function(err, res) {
@@ -98,10 +101,10 @@ app.post("/login", function
       }
       //If there is no such freelancer, check if there's a host with this email
       else {
-        Host.find({email: req.body.login-email})
+        Host.find({email: req.body.loginemail})
         .then((result) => {
           if(result[0]===undefined) {
-            res.render("No such email found. Would you like to sign up?")
+            res.render('no-user')
           }
         })
         bcrypt.compare(req.body.password, result[0].password, function(err, res) {
