@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html>
-   {{> head}}
-   <body>
-      {{> preloader}} 
-      <div id="wrapper">
+<html class="no-js">
+{{> head}}
+
+<body>
+   {{> preloader}}
+   <div id="wrapper">
       {{> navbar}}
       {{{body}}}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script type="text/javascript" src="/js/bundle.js"></script>
       <script type="text/javascript" src="/js/SmoothScroll.js"></script>
       <script type="text/javascript" src="/js/jquery.mb.YTPlayer.js"></script>
       <!--    <script type="text/javascript" src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyCNGOsBBZo9vf0Tw4w6aJiilSTFVfQ5GPI"></script>-->
       <script type="text/javascript" src="/js/main.js"></script>
       <script type="text/javascript" src="/js/countries.js"></script>
-      <script language="javascript">	
+      <script language="javascript">
          populateCountries("country");
-         populateCountries("country2");         	  
-         
- 
-            $('.uploadFile').on('change',function(){
-                //get the file name
-                var fileName = $(this).val();
-                //replace the "Choose a file" label
-                $(this).next('#testss').html(fileName);
-            })
-  	  
-         		
+         populateCountries("country2");
+
+
+         $('.uploadFile').on('change', function () {
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('#testss').html(fileName);
+         })
+
+
       </script>
+      <script src="/js/custom-file-input.js"></script>
       <script type="text/javascript" src="/js/bootstrap-formhelpers.min.js"></script>
-   </body>
+</body>
+
 </html>
