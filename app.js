@@ -1,3 +1,7 @@
+require('dotenv').config()
+
+console.log("ENVVVV", process.env.GMAPS)
+
 var createError = require('http-errors')
 var logger = require('morgan')
 
@@ -46,6 +50,15 @@ app.use(function(req, res, next) {
     res.status(404);
     res.render('404');
 });
+
+
+// googleMapsClient.geocode({
+//   address: '1600 Amphitheatre Parkway, Mountain View, CA'
+// }, function(err, response) {
+//   if (!err) {
+//     console.log(response.json.results);
+//   }
+// });
 
 // error handler
 app.use(function(err, req, res, next) {
