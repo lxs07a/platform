@@ -2028,6 +2028,9 @@ section.gradient-bg:not([data-gradients]) {
 .image-box .image-overlay h6 {
   color: inherit;
 }
+
+.form-group label.error { color:orange; font-weight: 400; font-size: 18px;}
+
 .error-page {
   text-align: center;
 }
@@ -2347,7 +2350,7 @@ section.gradient-bg:not([data-gradients]) {
 .btn-light-out:active {
   background-color: #fff;
   border-color: #fff;
-  color: #1f1f1f;
+  color: #61c4da;
 }
 .btn-color {
   color: #fff;
@@ -6369,6 +6372,10 @@ section.section-skewed.section-bordered #home-slider:after {
   13
   Forms
 */
+
+.bfh-languages option:first-child {
+  display:none;
+}
 
 .js .inputfile {
   width: 0.1px;
