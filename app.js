@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+console.log("ENVVVV", process.env.GMAPS)
+
 var createError = require('http-errors')
 var logger = require('morgan')
 
