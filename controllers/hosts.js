@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var express = require('express')
 var app = express()
 
@@ -59,21 +61,38 @@ app.get('/list', function(req, res, next) {
 	})
 })
 
+// Create client with a Promise constructor
+const googleMapsClient = require('@google/maps').createClient({
+  key: 'AIzaSyDQ4vexFd95_GJ8YgLgsBYDrEe_EC27Hsc',
+  Promise: Promise // 'Promise' is the native constructor.
+});
+
+// Geocode an address with a promise
+googleMapsClient.geocode({address: '1600 Amphitheatre Parkway, Mountain View, CA'}).asPromise()
+  .then((response) => {
+    console.log(response.json.results[0].geometry.location);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 //Sign Up page for hosts
 app.get('/signup', function(req, res) {
   res.render('signup-hosts')
 })
 
-app.get('/single/:hostId', function (req, res) {
-  Host.findOne( { "url_name": req.params.url_name } )
+app.get('/single/:hostname', function (req, res) {
+  Host.findOne( { url_name: req.params.hostname } )
 	.then(data => {
 			res.render('single-host', {
 				country: data.country,
 				city: data.city,
 				facility_name: data.facility_name,
-				address: data,
+				address: data.address,
         cover_pic: data.cover_pic,
-        url_name: data.url_name
+        url_name: data.url_name,
+        question1: data.question1,
+        question2: data.question2
 		})
 	})
   .catch((err)=> {
