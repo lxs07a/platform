@@ -63,7 +63,11 @@ app.post("/signup", cpUpload, function
           user.save(function(err){
             //start session
             req.session.currentUser = req.body.email
-            res.render('users/list')
+            res.render('userslist', {
+              country: data.country,
+              city: data.city,
+              firstname: data.firstname
+          })
           })
         })
       }
