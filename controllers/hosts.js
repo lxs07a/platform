@@ -65,7 +65,7 @@ app.get('/signup', function(req, res) {
 })
 
 app.get('/single/:hostId', function (req, res) {
-  Host.findOne( { "_id": ObjectId(req.params.hostId) } )
+  Host.findOne( { "url_name": req.params.url_name } )
 	.then(data => {
 			res.render('single-host', {
 				country: data.country,
