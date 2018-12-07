@@ -43,7 +43,7 @@ body {
 }
 
 .pacifico { font-family: 'Pacifico', cursive; }
-
+.big { font-size:20px; }
 body.boxed-layout {
   background-color: #f2f2f2;
 }
