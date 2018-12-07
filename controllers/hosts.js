@@ -82,22 +82,17 @@ app.get("/signup", function(req, res) {
 app.get("/single/:hostname", function(req, res) {
   Host.findOne({ url_name: req.params.hostname })
     .then(data => {
-      var address =
-        data.address.street +
-        ", " +
-        data.address.postcode +
-        ", " +
-        data.address.city +
-        ", " +
-        data.country;
+      var address = data.address.street + ", " + data.address.postcode + ", " + data.address.city + ", " + data.country;
       // Geocode an address with a promise
-      googleMapsClient
-        .geocode({ address: address })
+      googleMapsClient.geocode({ address: address })
         .asPromise()
         .then(response => {
           var lat = response.json.results[0].geometry.location.lat;
           var lng = response.json.results[0].geometry.location.lng;
-
+          // .catch((err) => {
+          //   console.log(err);
+          // })
+          
           res.render("single-host", {
             key: process.env.GMAPS,
             lng: lng,
@@ -105,16 +100,19 @@ app.get("/single/:hostname", function(req, res) {
             country: data.country,
             city: data.city,
             facility_name: data.facility_name,
+            facility_pics: data.facility_pics,
             address: data.address,
+            website: data.website,
             cover_pic: data.cover_pic,
             url_name: data.url_name,
             question1: data.question1,
             question2: data.question2
           });
+          debugger
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      // .catch((err) => {
-      //   console.log(err);
-      // })
     })
 
     .catch(err => {
@@ -152,7 +150,7 @@ app.post("/signup", cpUpload, function(req, res, next) {
 
           if (req.files["facility_pics"]) {
             let facilityArray = req.files["facility_pics"].map(obj => {
-              return obj.path;
+              return obj.filename;
             });
             host.facility_pics = facilityArray;
           }
@@ -179,7 +177,7 @@ app.post("/signup", cpUpload, function(req, res, next) {
           host.save(function(err) {
             console.log("Host is " + host);
 
-            res.send("Success!");
+            res.redirect("/hosts/list");
           });
         });
       }

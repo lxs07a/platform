@@ -1,7 +1,5 @@
 require('dotenv').config()
 
-console.log("ENVVVV", process.env.GMAPS)
-
 var createError = require('http-errors')
 var logger = require('morgan')
 
@@ -50,16 +48,6 @@ app.use(function(req, res, next) {
     res.status(404);
     res.render('404');
 });
-
-
-// googleMapsClient.geocode({
-//   address: '1600 Amphitheatre Parkway, Mountain View, CA'
-// }, function(err, response) {
-//   if (!err) {
-//     console.log(response.json.results);
-//   }
-// });
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -72,6 +60,32 @@ app.use(function(err, req, res, next) {
 })
 
 module.exports = app
+
+var os = require('os');
+var ifaces = os.networkInterfaces();
+
+Object.keys(ifaces).forEach(function (ifname) {
+  var alias = 0;
+
+  ifaces[ifname].forEach(function (iface) {
+    if ('IPv4' !== iface.family || iface.internal !== false) {
+      // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+      return;
+    }
+
+    if (alias >= 1) {
+      // this single interface has multiple ipv4 addresses
+      console.log(ifname + ':' + alias, iface.address);
+    } else {
+      // this interface has only one ipv4 adress
+      console.log(ifname, iface.address);
+    }
+    ++alias;
+  });
+});
+
+
+
 
 
 app.listen(3000, function() {
