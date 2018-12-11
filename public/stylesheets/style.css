@@ -1807,7 +1807,7 @@ section.gradient-bg:not([data-gradients]) {
 .clients-box [class*="col-"] {
   padding: 5%;
 }
-#particle-canvas {
+.particle-canvas {
   position: absolute;
   top: 0;
   right: 0;

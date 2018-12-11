@@ -707,9 +707,9 @@
         }
       );
 
-    $("#particle-canvas").particleground({
-      dotColor: $("#particle-canvas").data("dot-color") || "#fff",
-      lineColor: $("#particle-canvas").data("line-color") || "transparent",
+    $(".particle-canvas").particleground({
+      dotColor: $(".particle-canvas").data("dot-color") || "#fff",
+      lineColor: $(".particle-canvas").data("line-color") || "transparent",
       lineWidth: 1,
       particleRadius: 3,
       density: 6000
