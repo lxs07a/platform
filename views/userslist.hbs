@@ -36,7 +36,7 @@
 			 {{#each freelancers}}				
             <div class="work-item {{this.continent}}">
                <div class="work-detail">
-                  <a href="/hosts/single/{{this._id}}">
+                  <a href="/users/single/{{this._id}}">
                      {{#if this.profilepic}}
                      <img src="../../uploads/{{this.profilepic}}" alt=""> <!-- Needs to be changed to the correct URL -->
                      {{else}}
@@ -44,8 +44,8 @@
                      {{/if}}
                   </a>
                   <div class="work-info-alt">
-                     <p>{{this.address.city}}, {{this.country}}</p>
-                     <h3><a href="#">{{this.nickname}}</a></h3>
+                     <p>{{this.address.city}}, {{this.address.country}}</p>
+                     <h3><a href="#">{{this.firstname}}</a></h3>
                   </div>
                </div>
             </div>

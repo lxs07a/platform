@@ -82,5 +82,8 @@ Object.keys(ifaces).forEach(function (ifname) {
   });
 });
 
+app.listen(80, function() {
+  console.log("Server is running!");
+});
 
 module.exports = app
