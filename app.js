@@ -3,12 +3,36 @@ require('dotenv').config()
 var createError = require('http-errors')
 var logger = require('morgan')
 
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+
 const express = require('express')
 var app = express()
 
 var path = require('path')
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', __dirname + '/views')
+
+app.use(express.static(__dirname, { dotfiles: 'allow' } ));
+
+// Certificate
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/www.upcharge.nl/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/www.upcharge.nl/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/www.upcharge.nl/chain.pem', 'utf8');
+
+const credentials = {
+	key: privateKey,
+	cert: certificate,
+	ca: ca
+};
+
+app.use(function(req, res, next) {
+  if(!req.secure) {
+    return res.redirect(['https://', req.get('Host'), req.url].join(''));
+  }
+  next();
+});
 
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
@@ -59,6 +83,8 @@ app.use(function(err, req, res, next) {
   res.render('error')
 })
 
+
+
 var os = require('os');
 var ifaces = os.networkInterfaces();
 
@@ -82,8 +108,16 @@ Object.keys(ifaces).forEach(function (ifname) {
   });
 });
 
-app.listen(3000, function() {
-  console.log("Server is running!");
+// Starting both http & https servers
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(80, () => {
+	console.log('HTTP Server running on port 80');
+});
+
+httpsServer.listen(443, () => {
+	console.log('HTTPS Server running on port 443');
 });
 
 module.exports = app
