@@ -37,14 +37,14 @@
                <div class="work-detail">
                   <a href="/hosts/single/{{this.url_name}}">
                      {{#if this.cover_pic}}
-                     <img src="../../uploads/{{this.cover_pic}}" alt=""> <!-- Needs to be changed to the correct URL -->
+                     <img src="../../uploads/{{this.cover_pic}}" alt="Host main picture"> <!-- Needs to be changed to the correct URL -->
                      {{else}}
                      <img src="/images/placeholder.jpg" alt="">
                      {{/if}}
                   </a>
                   <div class="work-info-alt">
                      <p>{{this.address.city}}, {{this.country}}</p>
-                     <h3><a href="#">{{this.facility_name}}</a></h3>
+                     <h3><a href="/hosts/single/{{this.url_name}}">{{this.facility_name}}</a></h3>
                   </div>
                </div>
             </div>
