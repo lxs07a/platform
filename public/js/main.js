@@ -1060,7 +1060,7 @@
     };
 
     var map = new google.maps.Map($("#map").get(0), mapOptions);
-
+    map.panBy(0, -100);
     var infowindow = new google.maps.InfoWindow({
       content: "<h6>" + mapTitle + "</h6>"
     });
@@ -1068,7 +1068,7 @@
     var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      icon: "http://themes.hody.co/html/bezel/images/marker.svg"
+      icon: "/images/marker.svg"
     });
 
     google.maps.event.addListener(marker, "click", function() {

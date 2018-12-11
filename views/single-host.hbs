@@ -22,18 +22,17 @@
     </div>
   </div>
 </section>
-
-
-<section class="section-skewed" data-custom-bg="#ffffff">
+<section class="section-skewed pt-50" data-custom-bg="#ffffff">
   <div class="container">
     <div class="row">
       <div class="col-md-7 mb-50">
         <div class="section-content">
+          <h2 class="Pacifico">About us</h2>
           <p class="big">{{question1}}</p>
-          <div class="title text-left">
-            <h4>Images</h4>
+          <div class="text-left">
+            <h2>Images</h2>
           </div>
-          <div class="row pt-25 pb-25">
+          <div class="row pb-25">
             <div class="photo-gallery masonry-style">
                {{#each facility_pics}}
               <div class="gallery-item">{{this}}
@@ -51,9 +50,9 @@
       <div class="col-md-3 col-md-offset-2">
         <div class="project-info">
           <ul>
-            <li><strong>Address:</strong>{{address.street}}<br />{{address.postcode}} {{city}}</li>
-            <br />
-            <li><strong>Website:</strong><a href="{{website}}">{{website}}</a></li>
+            <li><strong>Address</strong>{{address.street}}<br />{{address.postcode}} {{city}}</li>   
+            <li><strong>Phone number</strong><a href="tel:{{phone}}">{{phone}}</a></li>         
+            <li><strong>Website</strong><a href="{{website}}">{{website}}</a></li>
           </ul>
         </div>
       </div>
@@ -62,7 +61,7 @@
 </section>
 
 
-<section class="section" data-custom-bg="#ffffff" style="margin-top: -121px; padding-top: 121px; z-index: 9;
+{{!-- <section class="section" data-custom-bg="#ffffff" style="margin-top: -121px; padding-top: 121px; z-index: 9;
   height:800px">
   <div class="container">
     <div class="row">
@@ -72,8 +71,4 @@
     </div>
   </div>
 </section>
-
-
-
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{key}}"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{key}}"></script> --}}
