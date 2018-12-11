@@ -18,7 +18,7 @@ var User = mongoose.model("users", new Schema ({
 
     birthdate: Date,
     profession: String,
-    country_of_origin: String,
+    country2: String,
 
     languages: Array,
     skills: [{ type: Schema.Types.ObjectId, ref: 'Skill' }],
