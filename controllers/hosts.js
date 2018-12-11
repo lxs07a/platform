@@ -20,7 +20,7 @@ mongoose.connect(
 app.set("trust proxy", 1); // trust first proxy
 app.use(
   session({
-    secret: ["LULU Carrot", "Just Fucking Do It Already"],
+    secret: ["LULU Carrot", "Just Do It Already"],
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60 // 1 day
@@ -28,7 +28,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true, //requires HTTPS connection
+      secure: false, //set to true after we get HTTPS connection
       sameSite: true
     },
     unset: "destroy"
@@ -80,8 +80,10 @@ app.get("/signup", function(req, res) {
 });
 
 app.get("/single/:hostname", function(req, res) {
+  debugger
   Host.findOne({ url_name: req.params.hostname })
     .then(data => {
+      debugger
       var address = data.address.street + ", " + data.address.postcode + ", " + data.address.city + ", " + data.country;
       // Geocode an address with a promise
       googleMapsClient.geocode({ address: address })

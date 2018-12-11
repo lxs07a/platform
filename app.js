@@ -59,8 +59,6 @@ app.use(function(err, req, res, next) {
   res.render('error')
 })
 
-module.exports = app
-
 var os = require('os');
 var ifaces = os.networkInterfaces();
 
@@ -84,6 +82,5 @@ Object.keys(ifaces).forEach(function (ifname) {
   });
 });
 
-app.listen(3000, function() {
-  console.log("Server is running!");
-});
+
+module.exports = app
