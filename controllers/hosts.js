@@ -100,6 +100,7 @@ app.get("/single/:hostname", function(req, res) {
             lat: lat,
             country: data.country,
             city: data.city,
+            phone: data.phone,
             facility_name: data.facility_name,
             facility_pics: data.facility_pics,
             address: data.address,
