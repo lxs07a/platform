@@ -8,52 +8,7 @@
             {{> navbar}}
             {{{body}}}
             {{> footer}}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
-            <script type="text/javascript" src="/js/bundle.js"></script>
-            <script type="text/javascript" src="/js/SmoothScroll.js"></script>
-            <script type="text/javascript" src="/js/jquery.mb.YTPlayer.js"></script>
-            <!--    <script type="text/javascript" src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyCNGOsBBZo9vf0Tw4w6aJiilSTFVfQ5GPI"></script>-->
-            <script type="text/javascript" src="/js/main.js"></script>
-            <script type="text/javascript" src="/js/countries.js"></script>
-            <script language="javascript">
-                  populateCountries("country");
-                  populateCountries("country2");
-
-
-                  $('.uploadFile').on('change', function () {
-                        //get the file name
-                        var fileName = $(this).val();
-                        //replace the "Choose a file" label
-                        $(this).next('#testss').html(fileName);
-                  })
-
-                  var today = new Date();
-                  var dd = today.getDate();
-                  var mm = today.getMonth() + 1; //January is 0!
-                  var yyyy = today.getFullYear();
-                  if (dd < 10) {
-                        dd = '0' + dd
-                  }
-                  if (mm < 10) {
-                        mm = '0' + mm
-                  }
-
-                  today = dd + '-' + mm + '-' + yyyy;
-                  document.getElementById("birthdate").setAttribute("max", today);
-                  document.getElementById("start_date").setAttribute("min", today);
-                  document.getElementById("end_date").setAttribute("min", today);
-
-
-
-            </script>
-
-            <script>
-                  $("#freelanceform").validate();
-            </script>
-
-            <script src="/js/custom-file-input.js"></script>
-            <script type="text/javascript" src="/js/bootstrap-formhelpers.min.js"></script>
+            
 </body>
 
 </html>

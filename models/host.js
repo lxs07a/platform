@@ -9,6 +9,8 @@ var Host = mongoose.model("hosts", new Schema ({
     facility_name: String,
     cover_pic: String,
     email: String,
+    website: String,
+    phone: String,
     url_name: String,
     
     country: String,
