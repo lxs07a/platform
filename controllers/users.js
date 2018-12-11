@@ -89,8 +89,9 @@ app.post("/login", function
   if (req.session.currentUser!=undefined) req.session.destroy()
   else {
     //check if there's a freelancer with this email
-
+    debugger
     var x = req.body.loginemail
+    
     User.find({email: req.body.loginemail})
     .then ((result) => {
       if(result[0]) {
@@ -103,11 +104,13 @@ app.post("/login", function
           }
         })
       }
+      debugger
       //If there is no such freelancer, check if there's a host with this email
       else {
-        Host.find({email: req.body.loginemail})
+        User.find({email: req.body.loginemail})
         .then((result) => {
           if(result[0]===undefined) {
+            debugger
             res.render('no-user')
           }
         })
