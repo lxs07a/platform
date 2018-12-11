@@ -1,4 +1,10 @@
-1. Break up registration into multiple sections: 
-    Minimal info and Consent on the first page 
-    and an option to Skip on the next page. 
-    Make completing profile necessary before contacting the host.
+Break up registration into multiple sections: 
+Minimal info and Consent on the first page 
+and an option to Skip on the next page. 
+Make completing profile necessary before contacting the host.
+Add Nodemailer for contacting
+show social media links as buttons
+Index page--button after click--text is barely visible
+Signup.hbs -- add "Sign up as a host instead" link/button to the left 
+Add validation for input fields (including social media links)
+Automatically detect continent

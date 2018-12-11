@@ -6,11 +6,13 @@ var ObjectId = require('mongodb').ObjectID;
 var Host = mongoose.model("hosts", new Schema ({
     contact_person: String,
     contact_person_pic: String,
+    email: String,
+    phone: String,
+
     facility_name: String,
     cover_pic: String,
-    email: String,
     website: String,
-    phone: String,
+
     url_name: String,
     
     country: String,

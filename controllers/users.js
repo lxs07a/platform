@@ -151,7 +151,7 @@ app.get("/single/:id", function (req, res) {
   User.findOne({ "_id" : req.params.id })
     .then(data => {
       res.render("single-user", {
-        firstname: data.firstname,
+        nickname: data.nickname,
         city: data.address.city,
         country: data.address.country,
         question1: data.question1,

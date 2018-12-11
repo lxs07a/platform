@@ -35,34 +35,33 @@
           </div>
           <div class="form-group">
             <label>Contact person</label>
-            <p class="small">Name of the contact person at your non-profit</p>
+            <p class="small">Name of the contact person at your facility</p>
             <input class="form-control input-sm" type="text" name="contact_person" placeholder="">
             <br />
             <div class="box upload">
+              <p class="small">It's nice to put a face to the name --<br> upload a picture of the contact person</p>
               <input type="file" name="contact_person_pic" id="file-5" class="inputfile inputfile-3"
                 data-multiple-caption="{count} files selected" multiple />
               <label for="file-5"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                   <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" /></svg>
-                <span>Upload contact person picture</span></label>
+                <span>Upload picture</span></label>
             </div>
           </div>
-
           <hr>
           <div class="form-group">
-            <label>Non-Profit Name</label>
-            <p class="small">Name of the your school or non-profit</p>
+            <label>Facility</label>
+            <p class="small">Name of your school or non-profit</p>
             <input class="form-control input-sm" type="text" name="facility_name" placeholder="">
             <br />
             <div class="box upload">
+              <p class="small">Upload the main picture for your account</p>
               <input type="file" name="cover_pic" id="file-6" class="inputfile inputfile-3" data-multiple-caption="{count} files selected"
                 multiple />
               <label for="file-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                   <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" /></svg>
-                <span>Upload a cover picture</span></label>
+                <span>Upload cover picture</span></label>
             </div>
           </div>
-
-
           <hr>
           <div class="form-group">
             <label>Email address</label>
@@ -76,6 +75,7 @@
             <label>Phone number</label>
             <input class="form-control input-sm" type="text" name="phone" placeholder="">
           </div>
+          <hr>
           <div class="form-group">
             <label>Address</label>
             <input class="form-control input-sm" type="text" name="street" placeholder="Street + number">
@@ -99,8 +99,8 @@
           </div>
           <hr>
           <div class="form-group">
-            <label>Tell Us About Your Non-Profit</label>
-            <p>What do you do and for who?</p>
+            <label>Tell Us About Your Facility</label>
+            <p>What do you do and who do you serve?</p>
             <textarea class="form-control " type="text" name="question1" placeholder="Question 1"></textarea>
           </div>
           <div class="form-group">
@@ -124,11 +124,6 @@
           <div class="form-group">
             <label>Pictures of your facility</label>
             <br>
-            {{!-- <input id="uploadFile" placeholder="Choose up to 5" disabled="disabled" />
-            <div class="fileUpload btn btn-primary">
-              <span>Upload</span>
-              <input type="file" name="facility_pics" multiple>
-            </div> --}}
             <div class="box upload">
               <input type="file" name="facility_pics" id="file-9" class="inputfile inputfile-3" data-multiple-caption="{count} files selected"
                 multiple />
@@ -139,7 +134,7 @@
 
           </div>
           <div class="form-group">
-            <label>Pictures of your accommodation</label>
+            <label>Pictures of the accommodation you offer</label>
             <br>
             <div class="box upload">
               <input type="file" name="accommodation_pics" id="file-10" class="inputfile inputfile-3"
@@ -150,7 +145,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Pictures of your classroom</label>
+            <label>Pictures of the classroom your guest will teach in</label>
             <br>
             <div class="box upload">
               <input type="file" name="classroom_pics" id="file-11" class="inputfile inputfile-3" data-multiple-caption="{count} files selected"
@@ -162,7 +157,7 @@
              </div> <hr>
               <div class="form-group">
                 <label>Username</label>
-                <p class="small">Pick a username for this profile--you will use it for login</p>
+                <p class="small">Pick a username for this profile--you will use it to log in</p>
                 <input class="form-control input-sm" type="text" name="username" placeholder="Username">
               </div>
               <div class="form-group">
