@@ -84,6 +84,7 @@ app.get("/single/:hostname", function(req, res) {
     .then(data => {
       var address = data.address.street + ", " + data.address.postcode + ", " + data.address.city + ", " + data.country;
       // Geocode an address with a promise
+      debugger
       googleMapsClient.geocode({ address: address })
         .asPromise()
         .then(response => {
