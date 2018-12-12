@@ -28,12 +28,25 @@
       <div class="col-md-7 mb-50">
         <div class="section-content">
           <h2 class="Pacifico">About Me</h2>
-          <h3>Why I want to join UpCharge</h3>
+          <div>
+            <p class="big">Full Name: <b>{{firstname}} {{lastname}}</b></p>
+            <p class="big">Age: <b>{{age}}</b></p>
+            <p class="big">Country of Origin: <b>{{country2}}</b></p>
+            <p class="big">Profession: <b>{{profession}}</b></p>
+            {{!-- <p class="big">Languages: <b>{{languages}}</b></p> --}}
+          </div>
+          <br><br><br>
+          <p><b>Why I want to join UpCharge</b></p>
           <p class="big">{{question1}}</p>   
-          <h3>One thing I would like to change in the world</h3>
+          <p><b>One thing I would like to change in the world</b></p>
           <p class="big">{{question2}}</p>
-          <h3>The superpower I'd like to have</h3>
-          <p class="big">{{question3}}</p>       
+          <p><b>The superpower I'd like to have</b></p>
+          <p class="big">{{question3}}</p> 
+          <br><br><br> 
+          <strong>Follow me on </strong><a href={{facebook_profile}} target="_blank"><u>Facebook</u></a>, 
+          </strong><a href={{instagram_profile}} target="_blank"><u>Instagram</u></a>, 
+          </strong><a href={{linked_in_profile}} target="_blank"><u>LinkedIn</u></a>, 
+          </strong><a href={{twitter_profile}} target="_blank"><u>Twitter</u></a>    
         </div>
       </div>
       <div class="col-md-3 col-md-offset-2">
@@ -41,6 +54,7 @@
           <ul>
             <li><strong>Start date</strong>{{startdate}}</li>   
             <li><strong>End date</strong>{{enddate}}</li>
+            <p><a class="btn" href="/users/single/{{id}}/message" data-scroll="true">Contact Me</a>
           </ul>
         </div>
       </div>

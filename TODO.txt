@@ -1,5 +1,13 @@
 Add Skills as a drop-down to Users/Signup and Hosts/Signup, store them as ObjectIds from skills collection
 Users/single: Display all fields from the model (except Gov ID, email/password, and address except for country)
 Users/list: Filter by Skills like we do by continent in hosts list
-Add consent for verification checkmark (required)
+Add consent for verification checkmark (make it required)
+Fix the way languages get stored in db -- it returns an array with one empty string
 
+Add Contact Me button/Page to single user/host
+
+Make profile page look pretty
+
+Do the logo
+
+after account is created--My account page, see hosts message/button

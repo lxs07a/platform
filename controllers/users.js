@@ -162,7 +162,7 @@ app.post("/login", function (req, res, next) {
             else {
               //start session
               req.session.currentUser = req.body.email
-              res.render('users/list')
+              res.render('hosts/list')
             }
           })
         }
@@ -190,8 +190,17 @@ app.get('/list', function (req, res, next) {
 app.get("/single/:id", function (req, res) {
   User.findOne({ "_id": req.params.id })
     .then(data => {
-      startDate = new Date(data.start_date)
+
+      let startDate = new Date(data.start_date)
+      let endDate = new Date(data.end_date)
+
+      let birthDate = new Date(data.birthdate)
+      let currentDate = new Date()
+      let age = currentDate.getFullYear() - birthDate.getFullYear()
+      
       res.render("single-user", {
+        firstname: data.firstname,
+        lastname: data.lastname,
         nickname: data.nickname,
         city: data.address.city,
         country: data.address.country,
@@ -200,16 +209,70 @@ app.get("/single/:id", function (req, res) {
         question3: data.question3,
         profilepic: data.profilepic,
         startdate: startDate.toDateString(),
-        enddate: data.end_date,
+        enddate: endDate.toDateString(),
+        age: age,
+        profession: data.profession,
+        country2: data.country2,
+        languages: [...data.languages],
+        facebook_profile: data.facebook_profile,
+        linked_in_profile: data.linked_in_profile,
+        twitter_profile: data.twitter_profile,
+        instagram_profile: data.instagram_profile,
+        id: data._id
       })
-
     })
     .catch(err => {
       throw err;
     });
 });
 
+app.get("/single/:id/message", function (req, res) {
+  User.findOne({ "_id": req.params.id })
+  .then(data => {
+    res.render("message-user", {
+      name: data.nickname,
+      id: data._id
+    })
+  })
+  .catch(err => {
+    throw err;
+  });
+});
 
+app.post("/single/:id/message", function (req, res) {
+  res.render("message-user", {name: "yay"})
+  // debugger
+  // User.findOne({ "_id": req.params.id })
+  // .then(data => {
+  //   debugger
+  //   //actually nodemailer send the message
+  //   res.render("message-user-sent", {
+  //     name: data.nickname,
+  //     facebook_profile: data.facebook_profile,
+  //     linked_in_profile: data.linked_in_profile,
+  //     twitter_profile: data.twitter_profile,
+  //     instagram_profile: data.instagram_profile,
+  //   })
+  // })
+  // .catch(err => {
+  //   throw err;
+  // });
+});
 
+app.get("/single/:id/messagesuccess", function (req, res) {
+  User.findOne({ "_id": req.params.id })
+  .then(data => {
+    res.render("message-user-sent", {
+      name: data.nickname,
+      facebook_profile: data.facebook_profile,
+      linked_in_profile: data.linked_in_profile,
+      twitter_profile: data.twitter_profile,
+      instagram_profile: data.instagram_profile,
+    })
+  })
+  .catch(err => {
+    throw err;
+  });
+});
 
 module.exports = app
