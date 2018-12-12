@@ -8,3 +8,5 @@ Index page--button after click--text is barely visible
 Signup.hbs -- add "Sign up as a host instead" link/button to the left 
 Add validation for input fields (including social media links)
 Automatically detect continent
+Automatically resize uploaded pictures to smaller size for storage optimization
+Prevent default (handle enter button click)
