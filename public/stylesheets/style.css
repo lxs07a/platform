@@ -2213,6 +2213,11 @@ section.gradient-bg:not([data-gradients]) {
   box-shadow: none;
   outline: none;
 }
+
+#home-slider .btn:focus {
+  color:#00c3da!important
+}
+
 .btn:hover {
   -webkit-transform: translateY(-1px);
   transform: translateY(-1px);
@@ -2322,7 +2327,7 @@ section.gradient-bg:not([data-gradients]) {
   color: #fff;
 }
 .btn-dark-out {
-  color: #1f1f1f;
+  color: #ff0000;
   border-color: #1f1f1f;
   background-color: transparent;
 }
@@ -2333,16 +2338,16 @@ section.gradient-bg:not([data-gradients]) {
   color: #fff;
 }
 .btn-light {
-  color: #1f1f1f;
+  color: purple;
   background-color: #fff;
 }
 .btn-light:hover,
 .btn-light:active {
   background-color: #fff;
-  color: #1f1f1f;
+  color: green;
 }
 .btn-light:focus {
-  color: #1f1f1f;
+  color: red;
 }
 .btn-light-out {
   color: #fff;
