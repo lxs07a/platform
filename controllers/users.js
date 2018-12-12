@@ -6,6 +6,7 @@ var session = require('express-session')
 var mongoose = require('mongoose')
 const MongoStore = require("connect-mongo")(session)
 
+const nodemailer = require('nodemailer');
 var ObjectId = require("mongodb").ObjectID;
 
 mongoose.connect("mongodb://localhost:27017/change", {
@@ -42,6 +43,14 @@ const multer = require('multer')
 const upload = multer({ dest: './public/uploads/' })
 var cpUpload = upload.fields([{ name: 'profilepic', maxCount: 1 }, { name: 'governmentId', maxCount: 1 }])
 
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+         user: 'jchinsue@gmail.com',
+         pass: 'qbxnhjpcetztewrt'
+     }
+ });
+
 //Sign Up page
 app.get('/signup', function (req, res) {
   res.render('signup')
@@ -65,14 +74,45 @@ app.post("/signup", cpUpload, function
             user.address.city = req.body.city;
             user.address.country = req.body.country;
 
-            user.profilepic = req.files['profilepic'][0].filename
-            user.governmentId = req.files['governmentId'][0].filename
+            if (req.files["profilepic"]) {
+              user.profilepic = req.files['profilepic'][0].filename
+            }
+            if (req.files["governmentId"]) {
+              user.governmentId = req.files['governmentId'][0].filename
+            }            
+            
             user.password = hash
             user.save(function (err) {
               //start session
               req.session.currentUser = req.body.email
+
+              var mailOptions = {
+                from: '"Lulu from Upcharge" <info@upcharge.nl>', // sender address
+                to: `${req.body.firstname} ${req.body.lastname} <${req.body.email}>`, // list of receivers
+                subject: 'Request ', // Subject line
+                text: req.body.to, // plaintext body
+                html:
+                `
+                <h2>Hi ${req.body.firstname},</h2>
+                <br>
+                <p>Thank you for subscription!</p>
+                <br>
+                <p>Kind regards, Team Upcharge</p>
+                `      
+  
+              };
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  return console.log(error);
+                }
+                console.log('Message sent: ' + info.response);
+              });
+  
+
+
               res.redirect("list")
-            })
+            })           
+
           })
         }
       })
@@ -148,7 +188,7 @@ app.get('/list', function (req, res, next) {
 })
 
 app.get("/single/:id", function (req, res) {
-  User.findOne({ "_id" : req.params.id })
+  User.findOne({ "_id": req.params.id })
     .then(data => {
       res.render("single-user", {
         nickname: data.nickname,
@@ -159,11 +199,14 @@ app.get("/single/:id", function (req, res) {
         startdate: data.start_date,
         enddate: data.end_date,
       })
-      
+
     })
     .catch(err => {
       throw err;
     });
 });
+
+
+
 
 module.exports = app
