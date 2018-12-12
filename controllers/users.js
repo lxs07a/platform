@@ -190,13 +190,16 @@ app.get('/list', function (req, res, next) {
 app.get("/single/:id", function (req, res) {
   User.findOne({ "_id": req.params.id })
     .then(data => {
+      startDate = new Date(data.start_date)
       res.render("single-user", {
         nickname: data.nickname,
         city: data.address.city,
         country: data.address.country,
         question1: data.question1,
+        question2: data.question2,
+        question3: data.question3,
         profilepic: data.profilepic,
-        startdate: data.start_date,
+        startdate: startDate.toDateString(),
         enddate: data.end_date,
       })
 
